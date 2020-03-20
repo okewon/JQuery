@@ -1,0 +1,11 @@
+@charaset "UTF-8";
+
+pre{
+	font-size : 20px;
+	background : lightblue;
+	padding : 20px;
+	margin : 20px;
+	border-top : 3px dotted blue;
+	border-bottom : 3px dotted blue;
+	border-left : 10px solid red;	
+}
