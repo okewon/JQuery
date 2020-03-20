@@ -1,0 +1,16 @@
+1. D:\B_Util\1.설치 및 압축파일\[13]Apache tomcat 에서 apache-tomcat-7.0.73-windows-x64 압축풀되 디렉토리를 D:\B_Util\5.ApacheTomcat 여기로 지정
+2-1. D:\B_Util\5.ApacheTomcat\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73\bin에서 startup.bat 클릭하면 개인서버 start
+2-2. shutdown.bat 클릭하면 종료
+3. kepler에서 file -> Switch workspace -> other 누르고 workspace를 D:\A_TeachingMaterial\5.JQuery로 변경
+4. Window -> preference 검색 창에 encoding 입력 encoding방식을 UTF-8로 변경
+5. Window -> preference 검색 창에 server 입력 add 클릭 Apache Tomcat v7.0 선택 -> next 클릭 -> browse에서 디렉토리 D:\B_Util\5.ApacheTomcat\apache-tomcat-7.0.73-windows-x64\apache-tomcat-7.0.73로 지정 -> finish 클릭 -> ok 클릭 -> 아래 창에 servers있는지 확인
+6. 아래창 servers에 있는 버튼 클릭하여 server 생성
+7-1. project Explorer에서 server.xml 더블클릭. source파일에서 65번째 줄에서 포트번호를 80으로 변경
+7.2. 65번째 줄에 URIEncoding = "UTF-8" 추가
+8. servers에서 start하고 콘솔창 확인
+9. Ctrl + N -> dy입력 -> dynamic web project 클릭 -> project name에 webpro 입력 후 next 클릭(엔터키 누르거나 finish 누르면 안됨)  -> generate ~ 체크박스 클릭
+  (삭제시 delete project contents~ 체크박스 클릭해야 같은 이름으로 생성 가능)
+10. D:\A_TeachingMaterial\5.JQuery 디렉토리 가보면 .metadata랑 webpro 생성된 것 확인 가능
+11. WebContent에 html, css, js, images 등을 만들고 src에서 java 파일 생성
+12. webContent(!중요!) 선택 상태에서 Ctrl + N 누르고 검색창에 HTML 검색 -> HTML File 선택 -> filename을 index로 입력 후 next 클릭 -> New HTML File (5) html5 선택 후 finish 클릭
+13. images 폴더를 복사하여 webContent 폴더에 복사
