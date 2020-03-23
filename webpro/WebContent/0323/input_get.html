@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>Insert title here</title>
+			<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css"> 
+			<style>
+				form{
+					border : 2px solid blue;
+					padding : 20px;
+					line-height : 30px;
+				}
+				h1{
+					margin-top : 0px;
+					margin-bottom : 0px;
+				}
+			</style>
+		</head>
+		<body>
+		<pre>
+			<h1>get</h1>
+			&lt;form action = "input.jsp" method = "get"&gt;
+			데이터 입력 후 전송하면 url 주소 뒤에 ? 쿼리스트림이 붙는다.
+			http://localhost/webpro/0323/input.jsp?id=korea&pass=1234	
+		</pre>
+			<form action = "input.jsp" size = "10" method = "get">
+				아이디<input type = "text" name = "id"><br>
+				비밀번호<input type = "password" size = "10" name = "pass"><br>
+				성별<input type = "radio" name = "gender" value = "male">남자
+				<input type = "radio" name = "gender" value = "female">여자<br>
+				<input type = "submit"><br>
+				<input type = "reset"><br>
+			</form>
+			
+			
+		<pre>
+			<h1>post</h1>
+			&lt;form action = "input.jsp" method = "posts"&gt;
+			데이터 입력 후 전송하면 
+			http://localhost/webpro/0323/input.jsp
+			입력데이터는 request header속에 감춰서 서버에 보내진다.
+		</pre>
+			<form action = "input.jsp" method = "post">
+				아이디<input type = "text" size = "10" name = "id"><br>
+				비밀번호<input type = "password" name = "pass"><br>
+				성별<input type = "radio" name = "gender" value = "male">남자
+				<input type = "radio" name = "gender" value = "female">여자<br>
+				좋아하는 과일
+				<input type = "checkbox" name = "fruit" value = "사과">사과
+				<input type = "checkbox" name = "fruit" value = "복숭아">복숭아
+				<input type = "checkbox" name = "fruit" value = "참외">참외
+				<input type = "checkbox" name = "fruit" value = "수박">수박
+				<input type = "checkbox" name = "fruit" value = "딸기">딸기<br>
+				<input type = "checkbox" name = "fruit" value = "옥혜원은 바보다">ㅇㅈ<br>
+				
+				<input type = "submit"><br>
+				<input type = "reset"><br>
+			</form>
+		</body>
+	</html>

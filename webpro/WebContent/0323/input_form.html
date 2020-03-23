@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<style>
+	form{
+		border : 2px solid blue;
+		padding : 20px;
+		line-height : 30px;
+	}
+	#img{
+		width: 50px;
+		height: 50px;
+	}
+</style>
+</head>
+<body>
+	<pre>
+		전송기능을 수행하는 요소들
+		&lt;input type = "submit" value = "전송"&gt;
+		&lt;input type = "image"&gt;
+		&lt;button&gt;확인&lt;button&gt;
+		&lt;button type = "submit"&gt;
+				
+		전송기능을 수행하지 않는 일반버튼
+		&lt;input type = "button" value = "확인"&gt;
+		&lt;button type = "button"&gt;확인&lt;/button&gt;
+		
+	</pre>
+	<form action = "input_form.jsp" method = "post">
+		<input type = "text" name = "name"><br>
+		<input type = "text" name = "name2"><br>
+		<input type = "hidden" value = "a001" name = "id"><br>
+		
+		<input type = "submit" value = "전송">
+		<button type = "submit">전송</button>
+		<button>전송</button>
+		<input id = "img" type = "image" src = "../images/아메리카노.jpg" alt = "전송"><br>
+
+		<input type = "reset" value = "초기화">
+		<input type = "button" value = "확인" onclick = "alert('hello')">
+		<button type = "button" onclick = "alert('happy')">확인</button><br>
+	</form>
+	<br><hr>
+		<pre>
+			한줄 입력  ; &lt; input type = "text"&gt;
+			여러줄 입력 : &lt; textarea &gt; &lt;/textara&gt;
+		</pre>
+	<form action="area.jsp" method = "post">
+		이름 <input type = "text" name = "name3"><br>
+		직업<select name = "job">
+			<option value = "whitehand">백수</option> 
+			<option value = "programmer">프로그래머</option> 
+			<option value = "student">학생</option> 
+			<option value = "designer">디자이너</option> 
+		</select>
+		<br>
+		 소개<br><textarea rows = 10 cols = 50 name = "area"></textarea>
+		 <br><br>
+		 <input type = "submit" value = "전송">
+		 <input type = "reset" values = "초기화">
+	</form>
+</body>
+</html>
