@@ -3,11 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<style>
+	*{
+		font-size : 30px;
+	}
+	pre{
+		background : pink;
+	}
+	#ff{
+		border : 3px solid blue;
+		padding : 20px;
+		margin : 20px;
+	}
+	.sub{
+		background : crimson;
+		margin-left : 100px;
+		width : 100px;
+		height : 50px;
+		border-radius : 40px;
+	}
+</style>
 </head>
 <body>
-	<form action = "select.jsp" method = "post">
+	<pre style = "background : yellow">
+		전송 버튼 클릭하면 id를 서버로 전송한다.
+		서버의 select.jsp 페이지를 요청한다.
+		요청시 post방식을 이용한다.
+	</pre>
+	<form id = "ff" action = "select.jsp" method = "post">
 		아이디<input type = "text" name = "id"><br>
-		<input type = "submit" value = "전송"><br>
+		<input class = "sub" type = "submit" value = "전송"><br>
 	</form>
 </body>
 </html>
