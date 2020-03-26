@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type ="text/css">
+<style>
+	div{
+		width : 20%;
+		height : 280px;
+		margin : 5px;
+		padding : 10px;
+		border : 1px solid blue;
+		float : left;
+		overflow : auto;
+	}
+	#ul2{
+		list-style-type : circle;
+	}
+	#ul3{
+		list-style-type : square;
+	}
+	#ul4{
+		list-style-image : url('../images/check.png')
+	}
+	#hr5{
+		clear : both;
+		border : 5px solid red;
+		border-color : rgba(45,78,200,0.5); /* rgba(45,34, 200, 0.8) */
+	}
+	#ol2{
+		list-style-type : upper-alpha;
+	}
+	#ol3{
+		list-style-type : lower-alpha;	
+	}
+	#ol4{
+		list-style-type : hangle;
+	}
+	#ol5{
+		list-style-type : hangle-consonant;
+	}
+	#ol6{
+		list-style-type : korean-hangle-formal;
+	}
+	#p1{
+		font : bold 20px serif;
+	}
+	#p2{
+		font : bold 20px sans-serif;
+	}
+	#p3{
+		font : bold 20px 궁서체;
+	}
+	#h31{
+		font : bold 20px 궁서체;
+	}
+	#h32{
+		font : bold 20px 돋움체;
+	}
+</style>
+</head>
+<body>
+	<pre>
+		font-style
+		font-weight
+		font-size/line-height
+		font-family
+		font	: font-style, font-weight, font-size/line-heigth, font-family
+	</pre>
+	<div>
+		<h3 id = "h31">번호 없는 리스트(disc)</h3>
+		<p id = "p1">list-style-type : disc;</p>
+		<hr>
+		<ul>
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ul>
+	</div>
+	<div>
+		<h3 id = "h32">번호 없는 리스트(circle)</h3>
+		<p id = "p2">list-style-type : circle;</p>
+		<hr>
+		<ul id = "ul2">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ul>
+	</div>
+	<div>
+		<h3 id = "h33">번호 없는 리스트(square)</h3>
+		<p id = "p3">list-style-type : square;</p>
+		<hr>
+		<ul id = "ul3">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ul>
+	</div>
+	<div>
+		<h3 id = "h34">번호 없는 리스트(image)</h3>
+		list-style-image : url('../images/check.png');
+		<hr>
+		<ul id = "ul4">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ul>
+	</div>
+	<hr id = "hr5">
+	<div>
+		<h3>번호 있는 리스트(image)</h3>
+		list-style-type : number;
+		<hr>
+		<ol id = "ol1">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ol>
+	</div>
+	<div>
+		<h3>번호 있는 리스트(image)</h3>
+		list-style-type : upper-alpha;
+		<hr>
+		<ol id = "ol2">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ol>
+	</div>
+	<div>
+		<h3>번호 있는 리스트(image)</h3>
+		list-style-type : lower-alpha;
+		<hr>
+		<ol id = "ol3">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ol>
+	</div>
+	<div>
+		<h3>번호 있는 리스트(image)</h3>
+		list-style-type : hangle;
+		<hr>
+		<ol id = "ol4">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ol>
+	</div>
+	<div>
+		<h3>번호 있는 리스트(image)</h3>
+		list-style-type : hangle-consonant;
+		<hr>
+		<ol id = "ol5">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ol>
+	</div>
+	<div>
+		<h3>번호 있는 리스트(image)</h3>
+		list-style-type : korean-hangle-formal;
+		<hr>
+		<ol id = "ol6">
+			<li>매화</li>
+			<li>산수유</li>
+			<li>벚꽃</li>
+			<li>목련</li>
+			<li>개나리</li>
+			<li>진달래</li>
+		</ol>
+	</div>
+</body>
+</html>

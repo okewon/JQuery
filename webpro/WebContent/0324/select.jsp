@@ -41,14 +41,15 @@
 		ResultSet rs = stmt.executeQuery(sql);
 		
 		//6. 출력하기
-		if(rs != null){
-			while(rs.next()){
-				out.println("<p>아이디 : " + rs.getString("mem_id") + "</p>");
-				out.println("<p>이름 : " + rs.getString("mem_name") + "</p>");
-				out.println("<p>전화번호 : " + rs.getString("mem_hp") + "</p>");
-			}
-		}else{
-			out.println("찾는 데이터가 없습니다.");
+		boolean check = false;
+		while(rs.next()){
+			check = true;
+			out.println("<p>아이디 : " + rs.getString("mem_id") + "</p>");
+			out.println("<p>이름 : " + rs.getString("mem_name") + "</p>");
+			out.println("<p>전화번호 : " + rs.getString("mem_hp") + "</p>");
+		}
+		if(!check){
+			out.println("<p>찾는 데이터가 없습니다.</p>");
 		}
 	%>
 </body>
