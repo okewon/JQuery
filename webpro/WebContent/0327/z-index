@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{
+		width : 200px;
+		height : 100px;
+		margin : 20px;
+	}
+	#d1, #dd1{
+		background-color : yellow;
+	}
+	#d2, #dd2{
+		background-color : blue;
+	}
+	#d3, #dd3{
+		background-color : green;
+	}
+	#d4, #dd4{
+		background-color : pink;
+	}
+	p{
+		position : absolute;
+		font-size : 2.0em;
+		z-index : 1000;
+	}
+	img{
+		position : absolute;
+		top : 500px;
+	}
+</style>
+</head>
+<body>
+	<div id = "d1">1</div>
+	<div id = "d2">2</div>
+	<div id = "d3">3</div>
+	<div id = "d4">4</div>
+	<br>
+	<hr>
+	<p>무궁화 꽃이 피었습니다</p>
+	<img src = "../images/Coca-Cola-logo.png">
+</body>
+</html>
