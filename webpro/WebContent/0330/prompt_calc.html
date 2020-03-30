@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function calc()	{
+		//prompt를 이용, 두개의 수와 연산자를 입력
+		x = parseInt(prompt("첫번째 수 입력"));
+		y = parseInt(prompt("두번째 수 입력"));
+		what = prompt("연산자 입력");
+		
+		if(what == "+"){
+			hap = x + y;
+		}else if(what == "-"){
+			hap = x - y;			
+		}else if(what == "*"){
+			hap = x * y;
+		}else if(what == "/"){
+			hap = x / y;
+		}else{
+			alert("잘못된 입력입니다.");
+		}
+		
+		hap = x + " " + what + " " + y + " = " + hap;
+		//div요소에 출력 = innerHTML
+		document.getElementById("result").innerHTML = hap;
+	}
+</script>
+<style>
+	div{
+		width : 30%;
+		height : 100px;
+		text-align : center;
+		font-size : 2.0em;
+		background-color : lightpink;
+	}
+</style>
+</head>
+<body>
+	<input type = "button" value = "실행" onclick = "calc()"><br><br>
+	<div id = "result"></div>
+	
+</body>
+</html>

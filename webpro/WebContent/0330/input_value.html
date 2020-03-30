@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script>
+	function calc(){
+		//html요소에 접근하여 입력값 가져오기(value)
+		//v1 = document.getElementById("in1");
+		//v1 = vl.value;
+		v1 = document.getElementById("in1").value;
+		v2 = document.getElementById("in2").value;
+		hap = parseInt(v1) + parseInt(v2);
+		
+		//input 요소에 출력 - value;
+		document.getElementById("hap").value = hap;
+	}
+</script>
+</head>
+<body>
+	<pre>
+		두 개의 수를 입력 후 계산 버튼 클릭시 입력한 두 수의 덧셈을 수행한다.
+		
+		input 요소의 입력 값 가져오기 : value
+		v1 = document.getElementById("in1").value;
+		v2 = document.getElementById("in2").value;
+		hap = parseInt(v1) + parseInt(v2);
+		
+		input 요소에 값 출력하기: value = 값
+		document.getElementById("hap").value = hap;
+	</pre>
+	첫번째 수 : <input id = "in1" type = "text"><br>
+	두번째 수 : <input id = "in2" type = "text"><br>
+	합계 : <input id = "hap"><br>
+	<input type = "button" value = "계산" onclick = "calc()"><br>
+	
+</body>
+</html>

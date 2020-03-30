@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script>
+	function calc(op){
+		v1 = parseInt(document.getElementById("in1").value);
+		v2 = parseInt(document.getElementById("in2").value);
+		if(op == "+"){
+			hap = v1 + v2;
+		}else if(op == "-"){
+			hap = v1 - v2;
+		}else if(op == "*"){
+			hap = v1 * v2;
+		}else if(op == "/"){
+			hap = v1 / v2;
+		}
+		document.getElementById("hap").value = hap;
+	}
+</script>
+</head>
+<body>
+	첫번째 수 : <input id = "in1" type = "text"><br>
+	두번째 수 : <input id = "in2" type = "text"><br>
+	합계 : <input id = "hap"><br>
+	<input type = "button" value = "더하기" onclick = "calc('+')"><br>
+	<input type = "button" value = "빼기" onclick = "calc('-')"><br>
+	<input type = "button" value = "곱하기" onclick = "calc('*')"><br>
+	<input type = "button" value = "나누기" onclick = "calc('/')"><br>
+</body>
+</html>
