@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script>
+	function proc1(){
+		//두사람 가위바위보 입력
+		a = prompt("첫번째 사람 입력", "가위바위보");
+		b = prompt("두번째 사람 입력", "가위바위보");
+		
+		res = "첫번째 사람 : " + a + "<br>";
+		res += "두번째 사람 : " + b + "<br>";
+		
+		if(a == b){
+			str = "비김";
+		} else if ((a == "가위" && b == "보") || (a == "보" && b == "바위") || (a == "바위" && b == "가위")) {
+			str = "첫번째 사람이 이김";
+		} else{
+			str = "두번째 사람이 이김";
+		}
+		
+		res += "결과  : " + str + "<br>"; 
+		
+		//출력 div - innerHTML, textContent
+		aa = document.getElementById("result");
+		aa.innerHTML = res;
+		aa.textContent = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>가위바위보</h2>
+		두 사람의 가위바위보 입력<br>
+		어느 한 사람이 이기는 조건을 제시<br>
+		div출력시 <br>
+		innerHTML : 출력 내용에 html태그가 포함되어 실행된다.<br>
+		textContent : 출력 내용에 html태그가 실행되지 않고 글자 그대로 출력된다.<br>
+		<br>
+		<button type = "button" onclick = "proc1()">실행</button>
+		<div id = "result"></div>
+	</div>
+</body>
+</html>

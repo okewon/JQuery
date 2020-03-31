@@ -9,3 +9,23 @@ pre{
 	border-bottom : 3px dotted blue;
 	border-left : 10px solid red;	
 }
+.box{
+	margin : 10px;
+	padding : 20px;
+	background : #dfcfff;
+	height : auto;
+}
+.box button{
+	background : blue;
+	color : white;
+	font-weight : bold;
+	padding : 5px;
+	border-radius : 30px;
+	width : 100px;
+}
+.box div{
+	border : 2px dashed orange;
+	padding : 10px;
+	height : auto;
+	margin-top : 10px;	
+}
