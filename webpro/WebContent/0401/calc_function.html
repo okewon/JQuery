@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script>
+	function calc(){
+		xx = parseInt(document.getElementById('x').value);
+		yy = parseInt(document.getElementById('y').value);
+		
+		xy = xx + yy;
+		document.getElementById('res').value = xy;
+		document.getElementById('result1').innerHTML = xy;
+	}
+	function calc2(){
+		xx = parseInt(document.getElementById('x').value);
+		yy = parseInt(document.getElementById('y').value);
+		
+		var b = sum();
+		print(b);
+	}
+	function sum(){
+		var a = xx + yy;
+		return a;
+	}
+	function print(x){
+		document.getElementById('res').value = x;
+		document.getElementById('result1').innerHTML = x;
+	}
+	function show(a){
+		res = "<h2>" + a + "</h2>";
+		
+		document.getElementById('result2').innerHTML = res;
+	}
+	function pro(a){
+		/*무명함수*/
+		( function (a){
+			res = "<h2>" + a + "</h2>";
+			document.getElementById('result3').innerHTML = res;
+		} )(a)
+	}
+</script>
+</head>
+<body>
+	<pre>
+		실행1
+			calc()함수 호출
+			calc()함수는 매개변수도 없고 리턴결과형도 없다
+			calc()함수 내부에서
+			 입력한 값을 value로 가져가서 계산하고 출력한다
+			
+		실행2
+			calc2()함수 호출
+			calc2()함수는 매개변수도 없고 리턴결과형도 없다
+			calc2()함수 안에서 계산은 sum()함수 호출하고 출력은 print(x)함수 호출한다.
+			
+			sum()함수는 매개변수 없고 리턴결과형 있다.
+			입력한 값을 value로 받아서 전역변수로 저장한다
+			계산 후 결과 값을 리턴한다
+			리턴한 값을 지역변수에 받는다
+			출력하기 위해서 print(b)함수 호출
+				
+				
+			print(x) 함수는 출력할 내용을 x라는 매개변수로 받아서 출력한다
+	</pre>
+	
+	<div class = "box">
+		입력1 : <input type = "text" id = "x"><br>
+		입력2 : <input type = "text" id = "y"><br>
+		결과 : <input type = "text" id = "res"><br>
+		<button type = "button" onclick = "calc()">실행1</button><br>
+		<div id = "result1"></div><br>
+		<button type = "button" onclick = "calc2()">실행2</button><br>
+	</div>
+	
+	<div class = "box">
+		<h2>함수를 여러번 호출</h2>
+		- 매개변수 값을 다르게 하여 같은 함수를 여러번 호출할 수 있다.<br>
+		- show('Hello')<br>
+		- show('안녕하세요')<br>
+		- show('맛있는 점심')<br>
+		<button type = "button" onclick = "show('Hello')">실행1</button><br>
+		<button type = "button" onclick = "show('안녕하세요')">실행2</button><br>
+		<button type = "button" onclick = "show('맛있는 점심')">실행3</button><br>
+		<div id = "result2"></div><br>
+	</div>
+	
+	<div class = "box">
+		<h2>무명 함수</h2>
+		- 함수 이름이 없고 여러번 호출할 수 없다.<br>
+		- 함수 정의시 함수 호출이 동시에 이루어진다..<br>
+		
+		<button type = "button" onclick = "pro('Hello')">실행1</button><br>
+		<div id = "result3"></div><br>
+	</div>
+</body>
+</html>

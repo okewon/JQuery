@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script>
+	/* a,b 전역변수 */
+	var a = 10;
+	var b = 20;
+	
+	window.onload = function(){
+		/* dd : 전역변수 : 모든 함수 내에서 dd변수 사용가능 */
+		dd = document.getElementsByTagName('div')[0];
+	}
+	
+	function proc1(){
+		arr = ["사과", "바나나", "참외", "딸기", "수박"];
+		print("result1");
+		
+		res = "a = " + a + "<br> b = " + b + "<br>";
+		dd.innerHTML = res;
+	}
+	
+	function proc2(){
+		arr = new Array("사과", 123, 123.456, "딸기", "수박");
+		print("result2");
+		
+		a++;
+		b++;
+		res = "a = " + a + "<br> b = " + b + "<br>";
+		dd.innerHTML = res;
+	}
+	
+	function proc3(){
+		arr = new Array();
+		arr[0] = "사과";
+		arr[1] = 100;
+		arr[2] = "딸기";
+		print("result3");
+		
+		a++;
+		b++;
+		res = "a = " + a + "<br> b = " + b + "<br>";
+		dd.innerHTML = res;
+	}
+	function print(result){
+		res = "";
+		
+		for(i = 0; i < arr.length; i++){
+			res += arr[i] + "&nbsp;&nbsp;&nbsp;&nbsp;"
+		}
+		
+		document.getElementById(result).innerHTML = res;
+	}
+</script>
+<style>
+	.d1{
+		height : auto;
+		padding : 10px;
+		border : 1px solid blue;
+	}
+</style>
+</head>
+<body>
+	<pre>
+		script 안에서 함수 밖에서 맨처음 선언되는 변수는
+		var키워드가 있거나 없거나 전역변수이다.
+		모든 함수 내에서 사용가능하다.
+	</pre>
+	<div class = "d1"></div>
+	<div class = "box">
+		<h2>배열 1</h2>
+		리터럴(상수값)에 의한 배열 생성<br>
+		var arr = ["사과", "바나나", "참외", "딸기", "수박"];<br>
+		<button type = "button" onclick = "proc1()">실행</button>
+		<div id = "result1"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>배열 2</h2>
+		생성자에 의한 배열 생성<br>
+		var arr = new Array("사과", 123, 123.456, "딸기", "수박");<br>
+		<button type = "button" onclick = "proc2()">실행</button>
+		<div id = "result2"></div>
+	</div>
+
+	<div class = "box">
+		<h2>배열 3</h2>
+		생성자에 의한 배열 생성<br>
+		var arr = new Array();<br>
+		arr[0] = "사과";<br>
+		arr[1] = 100;<br>
+		arr[2] = "딸기";<br>
+		<button type = "button" onclick = "proc3()">실행</button>
+		<div id = "result3"></div>
+	</div>
+</body>
+</html>
