@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script>
+	var circle1 = {
+			rad : 7,
+			getArea : function(){
+				return this.rad * this.rad * Math.PI;
+			},
+			getCircum : function(){
+				return 2 * Math.PI * this.rad;
+			}
+	}
+	function circle2(r){
+		this.rad = r;
+		
+		getArea = function(){
+			return this.rad * this.rad * Math.PI;
+		}
+		getCircum = function(){
+			return 2 * Math.PI * this.rad;
+		}
+		 
+	}
+	function proc1(){
+		//Circle 객체 이용
+		circle1.name = "동그라미";
+		//출력
+		res = "이름 : " + circle1.name + "<br>";
+		res += "반지름 : " + circle1.rad + "<br>";
+		res += "면적 : " + circle1.getArea() + "<br>";
+		res += "둘레 : " + circle1.getCircum() + "<br>";
+		
+		document.getElementById('result1').innerHTML = res;
+	}
+	function proc2(){
+		
+		
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>객체 생성</h2>
+		<pre>
+			리터럴 형식의 객체<br>
+			var circle = {<br>
+				rad : 7,<br>
+				getArea : function(){<br>
+					return this.rad * this.rad * Math.PI;<br>
+					or return Math.pow(this.rad, 2) +* Math.PI<br>	
+					//Math.pow(this.rad, 2) => this.rad를 2번 곱하여라<br>
+				},<br>
+				getCircum : function(){	2 * Math.PI * this.rad; }<br>
+			}<br>
+			생성자 정의 객체<br>
+			function circle(r){<br>
+				this.rad = r;<br>
+				<br>
+				getArea = function(){}<br>
+				getCircum = function(){}<br>
+			}<br>
+		</pre>
+		<input type = "button" value = "리터럴객체실행" onclick = "proc1()"><br>
+		<button type = "button" onclick = "proc2()">생성자객체실행</button><br>
+		<div id = "result1"></div>
+	</div>
+</body>
+</html>

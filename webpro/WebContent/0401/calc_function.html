@@ -31,13 +31,17 @@
 	function show(a){
 		res = "<h2>" + a + "</h2>";
 		
-		document.getElementById('result2').innerHTML = res;
+		//document.getElementById('result2').innerHTML = res;
+		dd = document.getElementById('result2');
+		dd.innerHTML = res;
 	}
 	function pro(a){
+		//a 매개변수 : Hello
+		
 		/*무명함수*/
-		( function (a){
+		( function (b){
 			res = "<h2>" + a + "</h2>";
-			document.getElementById('result3').innerHTML = res;
+			document.getElementById('result3').innerHTML += res;
 		} )(a)
 	}
 </script>
@@ -90,8 +94,12 @@
 		<h2>무명 함수</h2>
 		- 함수 이름이 없고 여러번 호출할 수 없다.<br>
 		- 함수 정의시 함수 호출이 동시에 이루어진다..<br>
-		
+		- 버튼을 클리하면 pro()함수를 호출.<br>
+		- pro('Hello')함수 내에서 무명 함수를 호출<br>
+		- 버튼 클릭시 무명함수를 직접 호출 할 수 없다.
 		<button type = "button" onclick = "pro('Hello')">실행1</button><br>
+		<button type = "button" onclick = "pro('Hello123!!')">실행1</button><br>
+		<button type = "button" onclick = "pro('Hello456!!')">실행1</button><br>
 		<div id = "result3"></div><br>
 	</div>
 </body>

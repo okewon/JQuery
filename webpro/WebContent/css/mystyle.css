@@ -15,7 +15,7 @@ pre{
 	background : #dfcfff;
 	height : auto;
 }
-.box button{
+.box button, .box input[type = button]{
 	background : blue;
 	color : white;
 	font-weight : bold;

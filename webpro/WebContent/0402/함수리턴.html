@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script>
+	function calc(a){
+		xx = document.getElementById('x').value;
+		yy = document.getElementById('y').value;
+		
+		if(a == '+'){
+			vres = plus();
+		}else if(a == '-'){
+			vres = minus();
+		}else if(a == '*'){
+			vres = multiply();
+		}else if(a == '/'){
+			vres = divide();
+		}
+		
+		res = xx + " " + a + " " + yy + " = " + vres;
+		document.getElementById('result1').innerHTML = res;
+	}
+	function calc2(a){
+		switch(a){
+		case '+':
+			document.getElementById('result1').innerHTML = plus();
+			break;
+		case '-':
+			document.getElementById('result1').innerHTML = minus();
+			break;
+		case '*':
+			document.getElementById('result1').innerHTML = multiply();
+			break;
+		case '/':
+			document.getElementById('result1').innerHTML = divide();
+			break;
+		}
+		
+		res = xx + " " + a + " " + yy + " = " + vres;
+		document.getElementById('result1').innerHTML = res;
+	}
+	function plus(){
+		var aa = xx + yy;
+		return aa;
+	}
+	function minus(){
+		var bb = xx - yy;
+		return bb;
+	}
+	function multiply(){
+		//var cc = xx * yy;
+		return xx * yy;
+	}
+	function divide(){
+		//var dd = xx / yy;
+		return xx / yy;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		입력1<input type = "text" id = "x"><br>
+		입력2<input type = "text" id = "y"><br>
+		<button type = "button" onclick = "calc('+)">실행+</button>
+		<button type = "button" onclick = "calc('-')">실행-</button>
+		<button type = "button" onclick = "calc('*')">실행*</button>
+		<button type = "button" onclick = "calc('/')">실행/</button><br><br>
+		
+		<button type = "button" onclick = "calc2('+)">실행+</button>
+		<button type = "button" onclick = "calc2('-')">실행-</button>
+		<button type = "button" onclick = "calc2('*')">실행*</button>
+		<button type = "button" onclick = "calc2('/')">실행/</button><br><br>
+		<div id = 'result1'></div>
+	</div>
+</body>
+</html>
