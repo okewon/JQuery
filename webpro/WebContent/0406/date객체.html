@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	a1 = new Date(2000, 05-1, 11, 12, 30);
+	function proc1(){
+		//a1 = new Date();
+		//a1 = new Date(134564697);
+		//a1 = new Date("1900, 10, 01");
+		a1 = new Date(2000, 05, 11, 12, 30);
+		
+		res = a1.toLocaleString() + "<br>";
+		res += a1.toLocaleDateString() + "<br>";
+		
+		document.getElementById("result1").innerHTML = res;
+	}
+	function proc2(){
+		//alert(a1.getDay());
+		day = alert(a1.getDay());
+		res = "";
+		
+		switch(day){
+		case 0:
+			res = "일요일";
+			break;
+		case 1:
+			res = "월요일";
+			break;
+		case 2:
+			res = "화요일";
+			break;
+		case 3:
+			res = "수요일";
+			break;
+		case 4:
+			res = "목요일";
+			break;
+		case 5:
+			res = "금요일";
+			break;
+		case 6:
+			res = "토요일";
+			break;
+		}
+		document.getElementById("result2").innerHTML = a1.toLocaleString() + "<br>" + res;
+	}
+	function proc3(){
+		res = "";
+		arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		
+		res = arr[a1.getDay()];
+			
+		document.getElementById("result2").innerHTML = a1.toLocaleString() + "<br>" + res;	
+	}
+	function proc4(){
+		res = "";
+		arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		
+		res = arr(a1.getDay());
+			
+		document.getElementById("result2").innerHTML = a1.toLocaleString() + "<br>";
+		document.getElementById("result2").innterHTML += res;	
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>date객체</h2>
+		a1 = new Date();<br>
+		a1 = new Date(134564697);<br>
+		a1 = new Date("1900, 10, 01");<br>
+		a1 = new Date(2000, 05, 11, 12, 30);<br>
+			= 월 설정시 실제값보다 -1 해준다.<br>
+			= 월은 0월 ~11월까지 존재하기 때문에<br>
+		<button type = "button" onclick = "proc1()">실행</button><br>
+		<div id = "result1"></div>
+	</div>
+	<div class = "box">
+		<h2>요일 구하기</h2>
+		 getDay() : 0:일요일 ~ 6 : 토요일<br>
+		 arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];<br>
+		<button type = "button" onclick = "proc2()">실행</button><br>
+		<button type = "button" onclick = "proc3()">배열실행</button><br>
+		<div id = "result2"></div>
+	</div>
+	<div class = "box">
+		<h2>경과 시간 구하기</h2>
+		 getTime : 결과값이 millisec로 반환된다.<br>
+		<button type = "button" onclick = "proc4()">실행</button><br>
+		<div id = "result2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" type ="text/css" rel = "stylesheet">
+<script>
+	function proc1(){
+		arr = new Array();
+		do{
+			a = prompt("이름입력 : ");
+			if(a==null || a =="") break;
+			arr.push(a);
+		}while(true);
+		document.getElementById('result1').innerHTML = arr;
+	}
+	function proc2(){
+		arr2 = new Array();
+		count = 0;
+		do{
+			number = prompt("숫자를 입력하시오.");
+			if(arr2.indexOf(number) < 0){
+				arr2.push(number);
+			}
+			
+		}while(arr2.length < 5);
+		
+		document.getElementById('result2').innerHTML = arr2;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+	<h2>이름 입력받아 배열에 저장하기</h2>
+	- 취소버튼을 누르거나 데이터 입력 없이 확인버튼을 누르면 종료 한다.<br>
+	<button type = "button" onclick = "proc1()">실행</button><br>
+	<div id = "result1"></div>
+	</div>
+	<div class = "box">
+	<h2>숫자를 입력받아 배열에 저장하기</h2>
+	- 중복되지 않는 수 5개를 입력하여 저장한다.<br>
+	- 중복되는 수를 입력하면 저장하지 않는다.<br>
+	<button type = "button" onclick = "proc2()">실행</button><br>
+	<div id = "result2"></div>
+	</div>
+</body>
+</html>

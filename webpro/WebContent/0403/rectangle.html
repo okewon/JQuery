@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	check = false;
+	var rect1={
+		width : 0,
+		height : 0,
+		name : "",
+		
+		setWidth : function(width){
+			this.width = width;
+		},
+		getWidth : function(){
+			return this.width;
+		},
+		setHeight : function(height){
+			this.height = height;
+		},
+		getHeight : function(){
+			return this.height;
+		},
+		setName : function(name){
+			this.name = name;
+		},
+		getName : function(){
+			return this.Name;
+		},
+		getArea : function(){
+			return this.width * this.height;
+		},
+		getCircum : function(){
+			return 2 * this.width + 2 * height;
+		}
+	}
+	function rect2(name, width, height){
+		this.name = name;
+		this.width = width;
+		this.height = height;
+		
+		this.setName = function(name){
+			this.name = name;
+		}
+		this.getName = function(){
+			return this.name;
+		}
+		this.setWidth = function(width){
+			this.width = width;
+		}
+		this.getWidth = function(){
+			return this.width;
+		}
+		this.setHeight = function(height){
+			this.height = height;
+		}
+		this.getHeight = function(){
+			return this.height;
+		}
+		this.getArea = function(){
+			return this.width * this.height;
+		}
+		this.getCircum = function(){
+			return this.width * 2 + 2 *  this.height;
+		}
+	}
+	function proc1(){	
+		width = 0;
+		height = 0;
+		name = "";
+		
+		name = prompt("이름을 입력하시오.");
+		width = Number(prompt("너비를 입력하시오."));
+		height = Number(prompt("높이를 입력하시오."));
+		rect1.setName(name);
+		rect1.setWidth(width);
+		rect1.setHeight(height);
+		
+		print(rect1);
+		check = true;
+	}
+	function proc2(){
+		w = 0;
+		h = 0;
+		name = ""
+		
+		n = prompt("이름을 입력하시오.");
+		w = Number(prompt("너비를 입력하시오."));
+		h = Number(prompt("높이를 입력하시오."));
+		r = new rect2(n, w, h);
+		
+		print(r);
+		check = false;
+	}
+	function print(r){
+		 res = "이름 : " + r.name + "<br>";
+	     res +="너비 : " + r.getWidth() + "<br>높이 : " + r.getHeight() + "<br>";
+	     res += "면적 : " + r.getArea() + "<br>";
+	     res += "둘레 : " + r.getCircum() + "<br>";
+		
+		document.getElementById("result1").innerHTML = res;
+	}
+	function plus(){
+		if(check){
+			width += 2;
+			height += 2;
+			rect1.setWidth(width);
+			rect1.setHeight(height);
+			
+			print(rect1);
+		}else{
+			w += 2;
+			h += 2;
+			r.setWidth(w);
+			r.setHeight(h);
+			
+			print(r);
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>리터털에 의한 객체 생성</h2>
+		<button type = "button" onclick = "proc1()">리터럴 객체 생성</button>
+		<button type = "button" onclick = "plus()">리터럴 객체 가로/세로 길이 +2</button>
+		<h2>생성자에 의한 객체 생성</h2>
+		<button type = "button" onclick = "proc2()">생성자에 의한 객체 생성</button>
+		<button type = "button" onclick = "plus()">생성자 객체 가로/세로 길이 +2</button>
+		<div id = "result1"></div>
+	</div>
+</body>
+</html>
