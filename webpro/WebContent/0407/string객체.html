@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	str = "우리 나라 좋은 나라 대한민국";
+	function proc1(){
+		idx = 0;
+		res = "";
+		a = "korea";
+		check = false;
+		
+		do{
+			idx = str.indexOf(a, idx);
+			if(idx == -1) break;
+			res += a + "의 위치 : " + idx + "<br>";
+			idx = idx + a.length;
+			check = true;
+		}while(true);
+		
+		if(!check){
+			res = "찾는 데이터는 없습니다.";
+		}
+		document.getElementById("result1").innerHTML = res;
+	}
+	function proc2(){
+		index = 4;
+		
+		a = str.charAt(index); //글자
+		b = str.charCodeAt(index); //유니코드
+		
+		res = "charAt(" + index + ") : " + a + "<br>";
+		res += "charCodeAt(" + index + ") : " + b;
+		
+		document.getElementById("result1").innerHTML = res;
+	}
+	function proc3(){
+		//substr
+		start = 7;
+		length = 4;
+		a = str.substr(start, length);
+		res = "str.substr("+ start + ", " + length + ") : " + a;
+		
+		document.getElementById("result2").innerHTML = res;
+	}
+	function proc4(){
+		//substring
+		start = 3;
+		end = 7;
+		a = str.substring(start, end);
+		res = "str.substring("+ start + ", " + length + ") : " + a;
+		
+		document.getElementById("result2").innerHTML = res;
+	}
+	function proc5(){
+		//slice
+		start = 3;
+		end = 7;
+		a = str.slice(start, end);
+		res = "str.slice("+ start + ", " + length + ") : " + a;
+		
+		document.getElementById("result2").innerHTML = res;
+	}
+	function proc6(){
+		//split
+		start = 3;
+		end = 7;
+		a = str.split(start, end);
+		res = "str.split("+ start + ", " + length + ") : " + a;
+		
+		document.getElementById("result2").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>위치나 글자 찾기</h2>
+		str = "우리 나라 좋은 나라 대한 민국";<br>
+		indexOf(item, start) : item의 위치를 반환<br>
+		charAt(idx) : idx 번째의 글자를 반환<br>
+		charCodeAt(idx) : idx번째의 유니코드(ASCII) 반환<br>
+		<button type = "button" onclick = "proc1()">indexOf실행</button>
+		<button type = "button" onclick = "proc2()">charAt실행</button>
+		<div id = "result1"></div>
+	</div>
+	<div class = "box">
+		<h2>글자 추출 찾기</h2>
+		str = "우리 나라 좋은 나라 대한 민국";<br>
+		substr(start, length) : start에서 length(갯수)만큼 추출<br>
+		substring(start, end) : start에서 end사이의 문자를 추출<br>
+		slice(start, end) : start에서 end사이의 문자를 자르기<br>
+		split(구분자, 갯수) : 구분자로 문자열을 구분, 배열을 리턴<br>
+		<button type = "button" onclick = "proc3()">substr실행</button>
+		<button type = "button" onclick = "proc4()">substring실행</button>
+		<button type = "button" onclick = "proc5()">slice실행</button>
+		<button type = "button" onclick = "proc6()">split실행</button>
+		<div id = "result2"></div>
+	</div>
+</body>
+</html>

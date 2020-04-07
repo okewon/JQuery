@@ -53,16 +53,48 @@
 		
 		res = arr[a1.getDay()];
 			
-		document.getElementById("result2").innerHTML = a1.toLocaleString() + "<br>" + res;	
+		document.getElementById("result3").innerHTML = a1.toLocaleString() + "<br>" + res;	
 	}
 	function proc4(){
-		res = "";
-		arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		//태어난 날짜
+		my = new Date("1998,04,24");
+		m1 = my.toLocaleString();
 		
-		res = arr(a1.getDay());
-			
-		document.getElementById("result2").innerHTML = a1.toLocaleString() + "<br>";
-		document.getElementById("result2").innterHTML += res;	
+		//현재날짜
+		today = new Date();
+		
+		//두 날짜 사이의 경과시간을 구한다.
+		m1 = my.getTime(); //milisec
+		m2 = today.getTime();
+		m3 = m2 - m1;
+		
+		res = "milisec " + m3 + "<br>";
+		res += "실제초 " + m3 / 1000 + "<br>"; //실제초
+		res += "실제분 " + m3 / 1000 / 60 + "<br>"; //실제분
+		res += "실제시간 " + m3 / 1000 / 60 / 60 + "<br>";
+		res += "실제 날 수 " + m3 / 1000 / 60 / 60 / 24 + "<br>";
+		res += "실제 년 수 " + m3 / 1000 / 60 / 60 / 24 / 365 + "<br>";
+		
+		document.getElementById("result4").innerHTML = res;
+	}
+	function proc5(){
+		today = new Date();
+		
+		to = today.getTime();
+		
+		//100일에 대한 milisec의 값을 구한다.
+		m100 = 100 * 24 * 60 * 60 * 1000;
+		
+		//오늘의 milisec에 100일의 milisec를 더한다.
+		tom100 = to + m100;
+		
+		//구해진 milisec로부터 날짜를 구한다.
+		a = new Date(tom100);
+		
+		res = "오늘 : " + today.toLocaleDateString() + "<br>";
+		res += "100일 후 : " + a.toLocaleDateString() + "<br>";
+		
+		document.getElementById("result5").innerHTML = res;
 	}
 </script>
 </head>
@@ -78,6 +110,7 @@
 		<button type = "button" onclick = "proc1()">실행</button><br>
 		<div id = "result1"></div>
 	</div>
+	
 	<div class = "box">
 		<h2>요일 구하기</h2>
 		 getDay() : 0:일요일 ~ 6 : 토요일<br>
@@ -85,12 +118,23 @@
 		<button type = "button" onclick = "proc2()">실행</button><br>
 		<button type = "button" onclick = "proc3()">배열실행</button><br>
 		<div id = "result2"></div>
+		<div id = "result3"></div>
 	</div>
+	
 	<div class = "box">
 		<h2>경과 시간 구하기</h2>
 		 getTime : 결과값이 millisec로 반환된다.<br>
 		<button type = "button" onclick = "proc4()">실행</button><br>
-		<div id = "result2"></div>
+		<div id = "result4"></div>
 	</div>
+	
+	<div class = "box">
+		<h2>경과 시간 구하기</h2>
+		 getTime : 결과값이 millisec로 반환된다.<br>
+		 - 오늘이 기준으로 100일 후의 날짜 구하기
+		<button type = "button" onclick = "proc5()">실행</button><br>
+		<div id = "result5"></div>
+	</div>
+	
 </body>
 </html>
