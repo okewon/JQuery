@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	//난수 발생
+	number = Math.floor((Math.random() * 50 + 50));
+	count = 0;
+	function proc1(){
+		//입력 값 가져오기
+		userNum = document.getElementById("number").value;
+		
+		//비교 난수와 입력값
+		if(number > userNum){
+			res = "사용자가 입력한 수 " + userNum + "은 랜덤 값보다 작습니다.";
+			count++;
+		}else if(number < userNum){
+			res = "사용자가 입력한 수 " + userNum + "은 랜덤 값보다 큽니다.";			
+			count++;
+		}else{
+			res = "사용자가 입력한 수 " + userNum + "은 랜덤 값" + number + "과 같습니다." + "<br>";
+			res += "총 " + count + "회 시도하셨습니다.";
+		}
+		
+		document.getElementById("result1").innerHTML = res;
+	}
+	function proc2(){
+		comstr = ["가위", "바위", "보"];
+		
+		//랜덤 발생 0~2
+		rand = parseInt(Math.random() * 3);
+		com = comstr[rand];
+		
+		//user입력 - prompt
+		user = prompt("가위 바위 보 중 하나를 입력하세요");
+		
+		if(user == "가위"){
+			if(com == "바위")
+		}else if(user == "바위"){
+			
+		}else{
+			
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>랜덤발생</h2>
+		- 랜덤을 발생하고 입력해서 맞춘다.<br>
+		- 값을 비교하여 일치할 때 까지 계속 실행<br>
+		- 일치할 때까지의 횟수를 구한다.<br>
+		<input type = "text" id = "number"><br>
+		<button type = "button" onclick = "proc1()">실행</button>
+		<div id = "result1"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>랜덤발생</h2>
+		- 가위 바위 보 게임을 할 수 있는 프로그램을 작성하시오.<br>
+		- 컴퓨터는 랜덤을 이용하고, 사용자는 prompt로 입력 받아서 처리<br>
+		- comstr = ["가위", "바위", "보"];<br>
+		- com = comstr[rand]
+		<button type = "button" onclick = "proc2()">실행</button>
+		<div id = "result2"></div>
+	</div>
+</body>
+</html>

@@ -65,12 +65,26 @@
 	}
 	function proc6(){
 		//split
-		start = 3;
-		end = 7;
-		a = str.split(start, end);
-		res = "str.split("+ start + ", " + length + ") : " + a;
+		a = str.length;
+		b = str.split(" ");
+		
+		res = "문자열 길이 : " + a + "<br>";
+		res += "배열로 변환 str.split(" + ") : " + b + "<br>";
+		
+		for(i = 0; i < b.length; i++){
+			res += "b[" + i + "] : " + b[i] + "<br>";
+		}
 		
 		document.getElementById("result2").innerHTML = res;
+	}
+	function proc7(){
+		//입력한 값을 가져오기
+		a = document.getElementById("area").value;
+		
+		a = a.replace(/|r/,"").replace(/|n/g,"<br>");
+		
+		//div에 출력하기
+		document.getElementById("result3").innerHTML = a;
 	}
 </script>
 </head>
@@ -97,6 +111,12 @@
 		<button type = "button" onclick = "proc5()">slice실행</button>
 		<button type = "button" onclick = "proc6()">split실행</button>
 		<div id = "result2"></div>
+	</div>
+	<div class = "box">
+		<h2>바꾸기</h2>
+		<textarea rows="10" cols="50" id = "area"></textarea><br>
+		<button type = "button" onclick = "proc7()">replace실행</button>
+		<div id = "result3"></div>
 	</div>
 </body>
 </html>

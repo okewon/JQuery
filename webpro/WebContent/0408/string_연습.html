@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	function proc1(){
+		//주민번호 입력 - prompt 980424-2408719
+		info = prompt("주민번호를 입력하세요.(-)제외");
+		
+		//주민번호 앞 6자리에서 각각 2자리씩 추출한다.- yy = '98' MM = '04' dd = '24'
+		//substr, substring, slice
+		yy = info.substring(0, 2);
+		mm = info.substring(4, 2);
+		dd = info.substring(4, 6);
+		
+		//주민번호 뒤 1자리 추출 - a = '2'
+		//substr, substring, slice, charAt
+		gender = info.substring(6, 7);
+		
+		//if 비교 - a값이 1이거나 2이면 = 1900
+		//		 a값이 3이거나 4이면 = 2000
+		if(gender == 1 || gender == 2){
+			year = 1900 + parseInt(yy);
+			if(parseInt(gender) == 1){
+				gender_kor = "남자";
+			}else{
+				gender_kor = "여자";				
+			}
+		}else{
+			year = 2000 + parseInt(yy);
+			if(parseInt(gender) == 3){
+				gender_kor = "남자";
+			}else{
+				gender_kor = "여자";				
+			}
+		}
+		day = new Date();
+		year2 = day.getFullYear();
+		age = year2 - year + 1;
+		
+		//res = 생년월일
+		//res += 성별
+		//res += 나이
+		res = "태어난 년도 : " + year + " 태어난 월 : " + mm + " 태어난 일 : " + dd + "<br>";
+		res += "귀하의 성별은 " + gender + "로 " + gender_kor + "입니다.<br>";
+		res += "귀하의 나이는 " + age + "살 입니다.";
+		
+		document.getElementById("result1").innerHTML = res;
+	}
+	function proc2(){
+		//곱하기 해줄 숫자
+		aa  ="234567892345";
+		
+		//주민번호 입력(-없이)
+		info = prompt("주민번호를 입력하시오.");
+		
+		sum = 0;
+		for(i = 0; i < info.length - 1; i++){
+			sum += info.charAt(i) * aa.charAt(i); 
+		}
+		total = 11 - (sum % 11);
+		
+		if(total > 9){
+			total -= 10;
+		}
+		
+		if(info.charAt(info.length - 1) == total){
+			res = info + "에 해당하는 유효성 검사 결과 값은 " + total +"로 유효한 주민등록번호입니다.";
+		}else{
+			res = info + "에 해당하는 유효성 검사 결과 값은 " + total + "로 유효하지 않은 주민등록번호입니다.";
+		}
+		
+		document.getElementById("result2").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>생년월일과 성별 나이 구하기</h2>
+		- 주민번호를 입력한다. 980424-2<br>
+		- 문자 추출하기 -> substring(), substr(), slice(), charAt()<br>
+			98, 04, 24, 2<br>
+			<br>
+		<button type = "button" onclick = "proc1()">실행</button>
+		<div id = "result1"></div>
+	</div>
+	<div class = "box">
+		<h2>주민번호 유효성 검사</h2>
+		- 주민번호를 입력한다(- 없이) 980424-2<br>
+		- 문자 추출하기 -> substr(start, 1)<br>
+		<button type = "button" onclick = "proc2()">실행</button>
+		<div id = "result2"></div>
+	</div>
+</body>
+</html>
