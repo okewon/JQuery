@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	function proc1(){
+		a = window.open("winsub.html", "naver 페이지", "top =100 left = 100 width = 100 heigth = 500");
+		//a.moveBy(200, 100);
+		//a.resizeBy(400, 100);
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>새로운 창 열기</h2>
+		- window.open(url, name/target, spec)<br>
+		- name : 물리적으로 보이지 않는 논리적인 이름
+		- target: _self, _blank, _<br>
+		- spec : 여러가지 속성들, height, width, top, left<br>
+		<button type = "button" onclick = "proc1()">실행</button>
+		<div id = "result1"></div>
+	</div>
+</body>
+</html>

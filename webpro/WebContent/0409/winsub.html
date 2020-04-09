@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	function subpro(){
+		//입력한 값 가져오기
+		aa = document.getElementById("aa").value;
+		
+		//부모창의 result1으로 보낸다
+		opener.document.getElementById("result1").innerHTML = aa;
+		window.close();
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>자식창</h2>
+		- window.open()에 의해서 새롭게 열린 창이다.<br>
+		- 입력한 값을 부모창으로 보내서 출력한다.<br>
+		<input type = "text" id = "aa">
+		<button type = "button" onclick = "subpro()">실행</button>
+	</div>
+</body>
+</html>

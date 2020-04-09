@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	function proc1(){
+		/*
+		window.setTimeout(function(){
+			d1 = document.getElementById("result1");
+			d1.innerHTML = "<h2>Hello~~</h2>";
+			d1.style.color = 'red';
+		}, 500); */
+		window.setTimeout(fncall(), 500);
+	}
+	function fncall(){
+		d1 = document.getElementById("result1");
+		d1.innerHTML = "<h2>Hello~~</h2>";
+		d1.style.color = 'red';
+	}
+	function proc2(){
+		//start버튼(실행버튼) 감추기
+		document.getElementById("start").style.display = "none";
+		
+		arr = ["Hello~~", "Happy~", "따뜻한", "굿~모닝~~", "배고파요~"];
+		
+		
+		//0.5초가 지날 때 마다 result2에 출력한다.
+		aa = window.setInterval(function(){
+			console.log(aa);
+			//랜덤발생 : 0 ~ arr.length - arr[2] arr[3] arr[1] arr[2] arr[0]
+			a = parseInt(Math.random() * arr.length);
+			
+			d2 = document.getElementById("result2");
+			//글자크기를 랜덤 15~40
+			size = parseInt(Math.random() * 31 + 15);
+			d2.innerHTML = arr[a];
+			
+			//글자색을 랜덤
+			cr = parseInt(Math.random() * 256);
+			cg = parseInt(Math.random() * 256);
+			cb = parseInt(Math.random() * 256);
+			
+			d2.style.fontSize = size + "px";
+			d2.style.color = 'rgb(' + cr + ", " + cg + ", " + cb + ")";
+		}, 500);
+	}
+	function proc3(){
+		document.getElementById("start").style.display = "inline";
+		clearInterval(aa);
+	}
+	function proc4(){
+		document.getElementById("bstart").style.display = "none";
+		
+		aa = window.setInterval(function(){
+			
+			//랜덤 발생
+			r = parseInt(Math.random() * 256);
+			g = parseInt(Math.random() * 256);
+			b = parseInt(Math.random() * 256);
+			
+			//브라우저 배경색 바꾸기
+			d2 = document.body;
+			d2.style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")";
+		}, 1000);
+	}
+	function proc5(){
+		document.getElementById("bstart").style.display = "inline";
+		clearInterval(aa);
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>setTimeout</h2>
+		- setTimeout(fn, millisec) : millisec시간이 경과하면 fn기능을 수행한다<br>
+		<button type = "button" onclick = "proc1()">실행</button>
+		<div id = "result1"></div>
+	</div>
+	<div class = "box">
+		<h2>setInterval</h2>
+		- serInterval(fn, milisec) : <br>
+		- milisec시간이 경과할 떄마다 주기적으로 fn기능을 수행한다<br>
+		<button type = "button" id = "start" onclick = "proc2()">실행</button>
+		<button type = "button" id = "stop" onclick = "proc3()">종료</button>
+		<div id = "result2"></div>
+	</div>
+	<div class = "box">
+		<h2>setInterval</h2>
+		- serInterval(fn, milisec) : <br>
+		- 1초마다 한번씩 배경색 바꾸기<br>
+		<button type = "button" id = "bstart" onclick = "proc4()">실행</button>
+		<button type = "button" id = "bstop" onclick = "proc5()">종료</button>
+		<div id = "result3"></div>
+	</div>
+</body>
+</html>
