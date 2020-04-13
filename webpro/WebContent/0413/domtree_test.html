@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	function proc1(){
+		//vul = document.getElementsByTagName("ul")[0];
+		//vli = vul.getElementsByTagName("li");
+		
+		vul = document.querySelector('ul');
+		vli = vul.querySelectorAll("li");
+		
+		str = "";
+		for(i = 0; i < vli.length; i++){
+			str += vli[i].firstChild.data + "<br>";
+		}
+		document.getElementById("result1").innerHTML = str;
+	}
+	function proc2(th){
+		//th : 클릭한 li의 객체
+		
+		liData = th.firstChild.data;
+	
+		//문자열 생성
+		//var vimg = "../images/" + liData + ".jpg";
+	
+		//노드 생성 - 태그 생성
+		vimg = document.createElement('img');
+		vimg.src = "../images/" + liData + ".jpg";
+		vimg.width = 100;
+		vimg.height = 100;
+		
+		th.append(vimg);
+	}
+	function proc3(h){
+		//h : hello~문자열을 받은 변수
+		//result3에 출력
+		//document.getElementById('result3').innerHTML = h;
+	
+		//textNode생성
+		//p태그를 생성
+		//p태그에 textNode를 추가
+		//p태그를 result3에 추가
+		txt = document.createTextNode(h);
+		ptag = document.createElement("p");
+		ptag.appendChild(txt);
+		document.querySelector("#result3").appendChild(ptag);
+	}
+	function proc4(){
+		str = ["옥혜원", "이재호", "곽녕은", "신나라", "나창수", "이용춘"];
+		num = parseInt(Math.random()* 6);
+		
+		txt = document.createTextNode(str[num]);
+		ptag = document.createElement("p");
+		ptag.appendChild(txt);
+		document.querySelector("#result4").appendChild(ptag);
+	}
+	function proc5(){
+		//삭제할 대상을 찾는다
+		//부모요소 = 
+		//parent = document.getElementById("result4");
+		parent = document.querySelector("#result4");
+		
+		//자식노드 =
+		child = parent.firstChild;
+		
+		//부모요소.removeChild(자식노드);
+		parent.removeChild(child);
+		
+	}
+	function proc6(){
+		//proc4과 같은 방식
+		str = ["옥혜원", "이재호", "곽녕은", "신나라", "나창수", "이용춘"];
+		num = parseInt(Math.random()* 6);
+		
+		txt = document.createTextNode(str[num]);
+		//button태그 생성, text - 삭제
+		but = document.createElement("Button");
+		btxt = document.createTextNode("삭제");
+		but.appendChild(btxt)
+		
+		//새로운 버튼의 이벤트
+		but.onclick = function(){
+			//삭제버튼의 부모 검색
+			ptag = this.parentNode;
+		
+			parent = document.getElementById("result6");
+		
+			parent.removeChild(ptag);
+		}
+		
+		ptag = document.createElement("p");
+		ptag.appendChild(txt);
+		//ptag에 button을 추가
+		ptag.appendChild(but);
+		
+		document.querySelector("#result6").appendChild(ptag);
+	}
+</script>
+</head>
+<body>
+	<pre>
+		요소 접근하기
+			- id로 접근 : document.getElementById("result1")
+			- class로 접근 : document.getElementsClassName("aa")
+			- tag이름으로 접근 : document.getElementsByTagName("ul")
+			- name으로 접근 : document.getElementsByName("ff")
+			- form의 name을 통해서 접근 : document.gg.img
+			
+			- document.querySelector("#aa") 
+			- document.querySelector(".box") 
+			- document.querySelector(".aa") 
+			- document.querySelector("button") 
+			- document.querySelectorAll(".box") 
+	</pre>
+	<div class = "box">
+		<h2 class = "aa">li의 내용 가져오기</h2>
+		- firstChild - Object[text]<br>
+		- firstChild.data - 실제값<br>
+		- firstChild.nodeValue - 실제값<br>
+		<ul>
+			<li>매화꽃</li>
+			<li>산수유</li>
+			<li>국화</li>
+			<li>라일락</li>
+		</ul>
+		<button type = "button" onclick = "proc1()">실행</button>
+		<div id = "result1"></div>
+	</div>
+	<div class = "box">
+		<h2 class = "aa">li의 내용으로 이미지 출력</h2>
+		- firstChild - Object[text]<br>
+		- firstChild.data - 실제값<br>
+		- firstChild.nodeValue - 실제값<br>
+		<br>
+		- 새로운 태그 생성 : vimg =  document.createElement('img')<br>
+		- img 속성 설정 : vimg.src = "" vimg.width = "" vimg.height ="" vimg.alt = ""<br>
+		- li에 추가 : th.appendChild(vimg)<br>
+		<ul>
+			<li onclick = "proc2(this)">매화꽃</li>
+			<li onclick = "proc2(this)">산수유</li>
+			<li onclick = "proc2(this)">국화</li>
+			<li onclick = "proc2(this)">라일락</li>
+		</ul>
+	</div>
+	<div class = "box">
+		<h2 class = "aa">새로운 문자열 생성</h2>
+		textNode생성 : txt = document.createTextNode("hello")<br>
+		p태그를 생성 : ptag = document.createElement("p")<br>
+		p태그에 textNode를 추가 : ptag.appendChild(txt);<br>
+		p태그를 result3에 추가  : document.querySelector("#result3").appendChild(ptag);<br>
+		<ul>
+			<li onclick = "proc2(this)">매화꽃</li>
+			<li onclick = "proc2(this)">산수유</li>
+			<li onclick = "proc2(this)">국화</li>
+			<li onclick = "proc2(this)">라일락</li>
+		</ul>
+		<button type = "button" onclick = "proc3('hello')">실행</button>
+		<div id = "result3"></div>
+	</div>
+	<div class = "box">
+		<h2 class = "aa">새로운 문자열 추가</h2>
+		버튼을 클릭하면 랜덤으로 발생하는 문자열을 생성<br>
+		textNode생성 : txt = document.createTextNode("hello")<br>
+		p태그를 생성 : ptag = document.createElement("p")<br>
+		p태그에 textNode를 추가 : ptag.appendChild(txt);<br>
+		p태그를 result3에 추가  : document.querySelector("#result3").appendChild(ptag);<br>
+		<ul>
+			<li onclick = "proc2(this)">매화꽃</li>
+			<li onclick = "proc2(this)">산수유</li>
+			<li onclick = "proc2(this)">국화</li>
+			<li onclick = "proc2(this)">라일락</li>
+		</ul>
+		<button type = "button" onclick = "proc4()">추가</button>
+		<button type = "button" onclick = "proc5()">삭제</button>
+		<div id = "result4"></div>
+	</div>
+	<div class = "box">
+		<h2 class = "aa">새로운 문자열 추가/삭제</h2>
+		버튼을 클릭하면 랜덤으로 발생하는 문자열과 삭제버튼을 생성<br>
+		textNode생성 : txt = document.createTextNode("hello")<br>
+		p태그를 생성 : ptag = document.createElement("p")<br>
+		p태그에 textNode를 추가 : ptag.appendChild(txt);<br>
+		p태그를 result3에 추가  : document.querySelector("#result3").appendChild(ptag);<br>
+		<ul>
+			<li onclick = "proc2(this)">매화꽃</li>
+			<li onclick = "proc2(this)">산수유</li>
+			<li onclick = "proc2(this)">국화</li>
+			<li onclick = "proc2(this)">라일락</li>
+		</ul>
+		<button type = "button" onclick = "proc6()">추가/삭제</button>
+		<div id = "result6"></div>
+	</div>
+</body>
+</html>

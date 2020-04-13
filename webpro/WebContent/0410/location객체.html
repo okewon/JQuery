@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+   function proc1() {
+      res = "href : " + location.href + "<br>";
+      res += "protocol : " + location.protocol + "<br>";
+      res += "host : " + location.host + "<br>";
+      res += "hostname : " + location.hostname + "<br>";
+      res += "port: " + location.port + "<br>";
+      res += "pathname : " + location.pathname + "<br>";
+      
+      document.getElementById('result1').innerHTML = res;
+      res = res.replace(/<br>/g, "\r\n");
+      
+      //document.getElementById('area').value = res;
+      document.ff.area.value = res;
+   }
+function proc2() {
+	location.href = "test.jsp?name=aa";
+}
+function goPage() {
+	//a링크 클릭했을때 - 페이지 이동
+	location.href = "test.jsp?name=aa";
+}
+function goPagePost() {
+	
+	/* document.ffpost.action ="testpost.jsp";
+	document.ffpost.method ="post";
+	document.ffpost.submit();
+	 */
+	 
+	 f = document.ffpost;
+	 f.action = "testpost.jsp";
+	 f.method ="post";
+	 f.submit();
+}
+function goReplace(str) {
+	location.replace(str);//페이지 이동 (대체) - 뒤로 수행 불가
+}
+function goReload() {
+	str = ["Happy~~금요일~~","Hello 금요일","안녕 금요일",
+	       "맛있는 점심", "굿금요일!!"];
+	
+	
+	//랜덤
+	rand = Math.floor(Math.random()*str.length);
+	
+	//str배열의 랜덤번째를 선택한다.
+	res = "<h2>" + str[rand] + "</h2>";
+	document.getElementById('result2').innerHTML = res;
+	document.getElementById('result2').style.color = 'red';
+	
+	setTimeout(function() {
+		location.reload();
+	}, 2000);
+	
+}
+</script>
+</head>
+
+<body>
+
+   <div class="box">
+      <h2>loacation객체</h2>
+      URL의 정보를 얻어오는 객체<br>
+      href : 전체 url<br>
+      port : 데이터 출입구역할, 웹포드 : 80<br>
+      host : 서버<br>
+      hostname : 서버name<br>
+      pathname : host를 제외한 정보<br>
+     
+      <form name="ff">
+         <button type="button" onclick="proc1()">실행</button>
+         <div id="result1"></div>
+         <textarea id="area" name="area" rows="10" cols="50"></textarea>
+      </form>
+   </div>
+   <div class = "box">
+     <h2>Location 객체</h2>
+     - 자동으로 특정 페이지로 이동 할때 사용
+     <button onclick="proc2()" type = "button">페이지 이동</button>
+     <br><br>
+     
+     - a태그 이용
+     <a href="javascript:goPage()">공지사항 목록</a>
+     <br><br>
+     
+     - 이벤트 사용(get방식)
+      <button onclick="goPage()" type = "button">공지사항목록</button>
+     <br><br>
+     
+     - 이벤트 사용(post방식)
+     <form name = "ffpost">
+        이름 <input type ="text" name="name"><br>
+       <input type ="hidden" name ="id" value="a001">
+       <button onclick="goPagePost()" type = "button">공지사항목록</button>
+     </form>
+     <br><br>
+     
+     - 새로운 문서로 대체:.replace(URL) - 뒤로 되돌아가기 수행 불가
+      <button onclick="goReplace('test.jsp')" type = "button">공지사항목록</button>
+    
+     <br><br>
+     
+     - 현재문서를 다시로드:
+      <button onclick="goReload()" type = "button">페이지 재호출</button>
+      <div id="result2"></div>
+   </div>
+</body>
+</html>

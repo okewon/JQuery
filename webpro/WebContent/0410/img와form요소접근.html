@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+   function proc1() {
+      res = document.getElementById('name').value + "<br>";
+      res += document.getElementById('addr').value + "<br>";
+      res += document.getElementById('tel').value + "<br>";
+      res += document.getElementById('lion').src + "<br>";
+      
+      document.getElementById('result1').innerHTML = res;
+   }
+
+   function proc2() {
+	   //form 이름과 각 요소의 이름을 이용
+      f = document.ff;
+
+      res = f.name.value + "<br>";
+      res += f.addr.value + "<br>";
+      res += f.tel.value + "<br>";
+      
+      //이미지는 form이름을 쓰지 않는다.
+      res += document.lion.src + "<br>";
+
+      document.getElementById('result1').innerHTML = res; 
+   }
+</script>
+<style>
+   img{
+      width : 300px;
+      height: 250px;
+   }
+</style>
+</head>
+
+<body>
+
+   <div class="box">
+      <h2>html요소 접근</h2>
+      id로 접근 : getElementById('id이름');<br>
+      <button type="button" onclick="proc1()">실행</button>
+      <br>
+      name으로 접근 : <br>
+         form이름 없을때 :document.getElementsByName('이름')[0]<br>
+         form이름 있을 때 : document.ff.form이름.요소이름<br>
+         이미지를 name으로 접근 : <br>
+            document.이미지이름 <br>
+            <button type="button" onclick="proc2()">name을 실행</button>
+      <div id="result1"></div>
+      <form name="ff">
+         이름<input name="name" id="name"><br>
+         주소<input name="addr" id="addr"><br>
+         전화번호<input name="tel" id="tel"><br>
+         <img id="lion" name="lion" src="../images/사자2.jpg"><br>
+      </form>
+   </div>
+</body>
+</html>
