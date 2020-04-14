@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+
+<script>
+	function proc1() {
+
+		// 입력한 단 값을 가져온다
+		danvalue = document.ff1.dan.value;
+
+		res = "";
+		for (i = 1; i < 10; i++) {
+			res += danvalue + " * " + i + " = " + danvalue * i + "\n";
+		}
+
+		document.ff1.area.value = res;
+	}
+
+	function proc2() {
+
+		f = document.ff2;
+		flen = f.like.length;
+
+		res = "";
+		// 입력한 값, 선택한 값 가져오기
+		for (i = 0; i < flen; i++) {
+			if (f.like[i].checked)
+				res += f.like[i].value + "\n";
+		}
+		// 출력
+		f.area.value = res;
+		//document.ff2.area.value = res;
+		//document.getElementById('result2').value = res;
+		//document.querySelector("#result2").value = res;
+	}
+</script>
+
+<style>
+	textarea {
+		padding: 10px;
+		font-size: 1.5em;
+		line-height: 30px;
+	}
+</style>
+
+</head>
+<body>
+
+	<div class="box">
+		<h2></h2>
+		<form name="ff1">
+			<input type="text" size="3" name="dan">
+			<button type="button" onclick="proc1()">실행</button>
+			<br>
+			<textarea name="area" rows="10" cols="30" id="result1"></textarea>
+		</form>
+	</div>
+
+	<div class="box">
+		<h2></h2>
+		<form name="ff2">
+			<input type="checkbox" checked="checked" value="여행" name="like">여행
+			<input type="checkbox" value="독서" name="like">독서 <input
+				type="checkbox" value="영화감상" name="like">영화감상 <input
+				type="checkbox" value="음악감상" name="like">음악감상 <input
+				type="checkbox" value="낚시" name="like">낚시 <input
+				type="checkbox" value="등산" name="like">등산 <input
+				type="checkbox" value="하이킹" name="like">하이킹 <input
+				type="checkbox" checked="checked" value="공부" name="like">공부
+			<input type="checkbox" value="춤추기" name="like">춤추기 <input
+				type="checkbox" value="노래하기" name="like">노래하기 <br>
+			<button type="button" onclick="proc2()">실행</button>
+			<br>
+			<textarea name="area" rows="10" cols="30" id="result2"></textarea>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+
+<script>
+  window.onload = function(){
+    f =   document.ff3; 
+    f.add.focus();
+  }
+  function addProc(){
+    addvalue =  f.add.value;
+    if(addvalue.trim().length <1 ){
+       alert("추가 내용 입력하세요");
+       f.add.focus();
+       return false;
+    }
+    opt = document.createElement('option');
+    opt.value =addvalue ;
+    opt.text = addvalue;
+    
+    f.left.appendChild(opt);
+    
+    f.add.value = "";
+    f.add.focus();
+  }
+</script>
+
+<style>
+
+   table{
+      /* border : 1px solid black; */
+   }
+   td{
+      width: 250px;
+      height: 40px;
+      text-align: center;
+      padding : 10px;
+   }
+   .button{
+      width : 50px;
+   }
+   button{
+      padding-bottom : 30px;
+   }
+   table select{
+      width : 200px;
+      height : 250px;
+   }
+  .tt {
+    text-align: center;
+  }
+  
+</style>
+</head>
+<body>
+
+ <div class="box">
+      <h2></h2>
+      <form name="ff3">
+         <table>
+            <tr>
+               <td class="tt" colspan="3"><h2>Select객체 예제</h2></td>
+            </tr>
+            <tr>
+               <td class="td1">
+                  <select name="left" size="15" multiple>
+                  </select>
+               </td>
+               <td class="button">
+                  <button type="button" onclick="">&gt;</button><br><br>
+                  <button type="button" onclick="">&gt;&gt;</button><br><br>
+                  <button type="button" onclick="">&lt;</button><br><br>
+                  <button type="button" onclick="">&lt;&lt;</button><br><br>
+               </td>
+               <td class="td2">
+                   <select name="right" size="15" multiple>
+                   </select>
+               </td>
+            </tr>
+            <tr>
+               <td  class="tt" colspan="3">
+                  <input type="text" size="20" name="add">
+                  <button type="button" onclick="addProc()">추가하기</button>
+               </td>
+            </tr>
+         </table>
+      </form>
+   </div>
+</body>
+</html>
+
+
