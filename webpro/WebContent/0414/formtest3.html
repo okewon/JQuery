@@ -6,89 +6,171 @@
 <link href="../css/mystyle.css" rel="stylesheet" type="text/css">
 
 <script>
-  window.onload = function(){
-    f =   document.ff3; 
-    f.add.focus();
-  }
-  function addProc(){
-    addvalue =  f.add.value;
-    if(addvalue.trim().length <1 ){
-       alert("추가 내용 입력하세요");
-       f.add.focus();
-       return false;
-    }
-    opt = document.createElement('option');
-    opt.value =addvalue ;
-    opt.text = addvalue;
-    
-    f.left.appendChild(opt);
-    
-    f.add.value = "";
-    f.add.focus();
-  }
+	window.onload = function() {
+		f = document.ff3;
+		f.add.focus();
+	}
+	function addProc() {
+		addvalue = f.add.value;
+		if (addvalue.trim().length < 1) {
+			alert("추가 내용 입력하세요");
+			f.add.focus();
+			return false;
+		}
+
+		//<option value = "sdf">sdf</option>
+		opt = document.createElement('option');
+		opt.value = addvalue;
+		opt.text = addvalue;
+
+		f.left.appendChild(opt);
+
+		f.add.value = "";
+		f.add.focus();
+	}
+	function toRight() {
+		//왼쪽에서 선택해서(선택한 요소의 번째) 오른쪽으로 보내기
+		idx = f.left.selectedIndex;
+
+		//선택되지 않은 경우
+		if (idx == -1) {
+			alert("선택하세요");
+			return false;
+		}
+
+		//선택된 경우 - 선택위치의 값을 가져온다
+		lvalue = f.left.options[idx].value;
+
+		//선택값을 오른쪽으로 보낸다 - option생성
+		opt = document.createElement("option");
+		opt.value = lvalue;
+		opt.text = lvalue;
+
+		//오른쪽에 추가
+		f.right.appendChild(opt);
+
+		//왼쪽에서 제거
+		f.left.removeChild(f.left.options[idx]);
+	}
+	function toRightAll() {
+		//왼쪽의 데이터의 갯수 구하기
+		leng = f.left.length;
+
+		for (i = 0; i < leng; i++) {
+			//왼쪽의 값을 가져온다.
+			lvalue = f.left.options[i].value;
+			//오른쪽으로 보내기 - option 생성
+			opt = document.createElement('option');
+			opt.value = lvalue;
+			opt.text = lvalue;
+			//오른쪽에 추가
+			f.right.appendChild(opt);
+			//왼쪽 값 삭제
+			f.left.removeChild(f.left.options[0]);
+		}
+
+	}
+	function toLeft() {
+		idx = f.right.selectedIndex;
+
+		if (idx == -1) {
+			alert("선택하세요");
+			return false;
+		}
+
+		rvalue = f.right.options[idx].value;
+
+		opt = document.createElement("option");
+		opt.value = rvalue;
+		opt.text = rvalue;
+
+		f.left.appendChild(opt);
+
+		f.right.removeChild(f.right.options[idx]);
+	}
+	function toLeftAll() {
+		//왼쪽의 데이터의 갯수 구하기
+		leng = f.right.length;
+
+		for (i = 0; i < leng; i++) {
+			//왼쪽의 값을 가져온다.
+			rvalue = f.right.options[i].value;
+			//오른쪽으로 보내기 - option 생성
+			opt = document.createElement('option');
+			opt.value = rvalue;
+			opt.text = rvalue;
+			//오른쪽에 추가
+			f.left.appendChild(opt);
+			//왼쪽 값 삭제
+			f.right.removeChild(f.right.options[0]);
+		}
+
+	}
 </script>
 
 <style>
+table {
+	/* border : 1px solid black; */
+	
+}
 
-   table{
-      /* border : 1px solid black; */
-   }
-   td{
-      width: 250px;
-      height: 40px;
-      text-align: center;
-      padding : 10px;
-   }
-   .button{
-      width : 50px;
-   }
-   button{
-      padding-bottom : 30px;
-   }
-   table select{
-      width : 200px;
-      height : 250px;
-   }
-  .tt {
-    text-align: center;
-  }
-  
+td {
+	width: 250px;
+	height: 40px;
+	text-align: center;
+	padding: 10px;
+}
+
+.button {
+	width: 50px;
+}
+
+button {
+	padding-bottom: 30px;
+}
+
+table select {
+	width: 200px;
+	height: 250px;
+}
+
+.tt {
+	text-align: center;
+}
 </style>
 </head>
 <body>
 
- <div class="box">
-      <h2></h2>
-      <form name="ff3">
-         <table>
-            <tr>
-               <td class="tt" colspan="3"><h2>Select객체 예제</h2></td>
-            </tr>
-            <tr>
-               <td class="td1">
-                  <select name="left" size="15" multiple>
-                  </select>
-               </td>
-               <td class="button">
-                  <button type="button" onclick="">&gt;</button><br><br>
-                  <button type="button" onclick="">&gt;&gt;</button><br><br>
-                  <button type="button" onclick="">&lt;</button><br><br>
-                  <button type="button" onclick="">&lt;&lt;</button><br><br>
-               </td>
-               <td class="td2">
-                   <select name="right" size="15" multiple>
-                   </select>
-               </td>
-            </tr>
-            <tr>
-               <td  class="tt" colspan="3">
-                  <input type="text" size="20" name="add">
-                  <button type="button" onclick="addProc()">추가하기</button>
-               </td>
-            </tr>
-         </table>
-      </form>
-   </div>
+	<div class="box">
+		<h2></h2>
+		<form name="ff3">
+			<table>
+				<tr>
+					<td class="tt" colspan="3"><h2>Select객체 예제</h2></td>
+				</tr>
+				<tr>
+					<td class="td1"><select name="left" size="15" multiple>
+					</select></td>
+					<td class="button">
+						<button type="button" onclick="toRight()">&gt;</button> <br>
+						<br>
+						<button type="button" onclick="toRightAll()">&gt;&gt;</button> <br>
+						<br>
+						<button type="button" onclick="toLeft()">&lt;</button> <br> <br>
+						<button type="button" onclick="toLeftAll()">&lt;&lt;</button> <br>
+						<br>
+					</td>
+					<td class="td2"><select name="right" size="15" multiple>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="tt" colspan="3"><input type="text" size="20"
+						name="add">
+						<button type="button" onclick="addProc()">추가하기</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </body>
 </html>
 

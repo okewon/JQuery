@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+
+<script>
+	window.onload = function(){
+	   db = document.board;
+	   num = 0;
+	}
+	function proc1() {
+		num++;
+		// 입력한 값을 가져온다
+		wvalue = db.writer.value;
+		tvalue = db.title.value;
+		cvalue = db.content.value;
+
+		contentv = cvalue;
+		if (cvalue.length > 10) {
+			contentv = cvalue.substr(0, 10) + ".......";
+		}
+		now = new Date();
+		nowdate = now.toLocaleDateString();
+
+		// 출력 - 번호, 제목, 작성자, 내용(contentv), 원래내용(cvalue) 날짜
+
+		// 새로운 tr생성
+		newtr = document.createElement("tr");
+		newtr.setAttribute('onclick', view(this));//this : 클릭한 tr객체
+		
+		newtd1 = document.createElement("td");
+		newtxt1 = document.createTextNode(num);
+		newtd1.appendChild(newtxt1);
+
+		newtd2 = document.createElement("td");
+		newtxt2 = document.createTextNode(wvalue);
+		newtd2.appendChild(newtxt2);
+
+		newtd3 = document.createElement("td");
+		newtxt3 = document.createTextNode(tvalue);
+		newtd3.appendChild(newtxt3);
+
+		newtd4 = document.createElement("td");
+		newtxt4 = document.createTextNode(contentv);
+		newtd4.appendChild(newtxt4);
+
+		newtd5 = document.createElement("td");
+		newtxt5 = document.createTextNode(nowdate);
+		newtd5.appendChild(newtxt5);
+
+		//<td class = 'cont'></td>
+		newtd6 = document.createElement("td");
+		newtd6.setAttribute('class', 'cont');
+		newtxt6 = document.createTextNode(cvalue);
+		newtd6.appendChild(newtxt6);
+
+		newtr.appendChild(newtd1);
+		newtr.appendChild(newtd2);
+		newtr.appendChild(newtd3);
+		newtr.appendChild(newtd4);
+		newtr.appendChild(newtd5);
+		newtr.appendChild(newtd6);
+
+		ttbody = document.querySelector("#tbodytr");
+		ttbody.appendChild(newtr);
+		
+		db.writer.value = "";
+		db.title.value = "";
+		db.content.value = "";
+		db.writer.focus();
+	}
+	function view(ctr){
+		//ctr : 클릭한 tr
+		
+		//클릭한 tr에서 각 td를 검색한다.
+		tdlist = ctr.getElementsByTagName('td');
+	
+		//각 td의 내용을 가져와서 form의 영역에 출력한다.
+		db.num.value = tdlist[0].textContent;
+		db.writer.value = tdlist[1].textContent;
+		db.title.value = tdlist[2].textContent;
+		db.content.value = tdlist[5].textContent;
+	}
+</script>
+
+<style>
+	label {
+		display: inline-block;
+		width: 80px;
+	}
+	
+	.box {
+		box-sizing: border-box;
+		width: 35%;
+		float: left;
+	}
+	
+	.box input {
+		box-sizing: border-box;
+		width: calc(70% - 2%);
+	}
+	
+	.box #right {
+		text-align: right;
+	}
+	
+	textarea {
+		box-sizing: border-box;
+		width: calc(95% - 2%);
+	}
+	
+	.listTable {
+		box-sizing: border-box;
+		width: calc(65% - 2%);
+		float: right;
+		border-collapse: collapse;
+	}
+	
+	.listTable table {
+		border-top: 3px solid #343434;
+		width: 100%;
+		border-collapse: collapse;
+	}
+	
+	.listTable th {
+		padding: 10px;
+		border-bottom: 1px solid #dddddd;
+		border-right: none;
+		border-left: none;
+	}
+	.listTable .cont{
+		display : none;
+	}
+</style>
+
+</head>
+<body>
+
+	<div class="box">
+		<h2>새 글 작성하기</h2>
+		<form name="board">
+			<input type="hidden" name="num"><br>
+			<label>작성자</label> <input type="text" name="writer"><br>
+			<br> <label>제목</label> <input type="text" name="title"><br>
+			<br> <label>내용</label>
+			<textarea rows=10 name="content"></textarea>
+			<br>
+			<br>
+
+			<div id="right">
+				<button type="button" onclick="proc1()">작성하기</button>
+				<button type="reset">취소하기</button>
+			</div>
+	</div>
+	<div class="listTable">
+		<h2>작성글 목록</h2>
+		<table id="blist">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>작성자</th>
+					<th>제목</th>
+					<th>내용</th>
+					<th>날짜</th>
+				</tr>
+			</thead>
+			<tbody id="tbodytr"></tbody>
+		</table>
+	</div>
+</body>
+</html>
