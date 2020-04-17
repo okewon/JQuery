@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function proc1() {
+		res = "";
+		check = true;
+		name = document.getElementById('name').value;
+		res += name + "씨! \n";
+
+		gender = document.getElementsByName('gender');
+		
+		for (i = 0; i < gender.length; i++) {
+			if (gender[i].checked == true) {
+				res += "당신은 " + gender[i].value + "이고, \n 취미는 "
+			}
+		}
+
+		hobby = document.getElementsByName('hobby');
+
+		for (i = 0; i < hobby.length; i++) {
+			if (hobby[i].checked == true) {
+				res += hobby[i].value + ",";
+				check = false;
+			}
+		}
+		res = res.substring(0, res.length-1);
+		
+		if(check){
+			res += "없군요?"
+		}else{
+			res += "이군요!";
+		}
+
+		document.getElementById('textarea').innerHTML = res;
+
+	}
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<label>이름 : </label> 
+		<input type="input" id="name"> <br>
+		
+		<label>성별 : </label> 		
+		<input type="radio" name="gender" value="남자">남
+		<input type="radio" name="gender" value="여자">여 
+		<br>
+		<label>취미: </label> 
+			<input type="checkbox" name="hobby" value="여행">여행 
+			<input type="checkbox" name="hobby" value="독서">독서
+			<input type="checkbox" name="hobby" value="영화감상">영화감상 
+			<input type="checkbox" name="hobby" value="바둑">바둑 
+			<input type="checkbox" name="hobby" value="장기">장기 
+			<input type="checkbox" name="hobby" value="등산">등산 
+			<input type="checkbox" name="hobby" value="낚시">낚시 <br>
+		<button type="button" onclick="proc1()">출력결과</button>
+		<br>
+		<textarea rows="40" cols="50" id="textarea"></textarea>
+	</div>
+</body>
+</html>

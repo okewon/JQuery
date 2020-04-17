@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script>
+	function change(c) {
+		document.body.style.backgroundColor = c;
+
+	}
+	function proc1() {
+
+	}
+	function clickProc() {
+		document.querySelector("#btn1").style.backgroundColor = "crimson";
+	}
+	function downProc() {
+		document.getElementById('btn2').style.fontSize = "1.5em";
+	}
+	function upProc() {
+		document.getElementById('btn3').style.color = "red";
+	}
+	function dblProc() {
+		document.getElementById("text").style.fontSize = "2.0em";
+	}
+	function overProc(){
+		document.querySelector("#txt2").style.display = "none";
+	}
+	function outProc(){
+		document.querySelector("#txt2").style.display = "inline";
+	}
+	function imgdbl(th){
+		//th : this매개변수를 받은 변수, 클릭한 이미지 객체를 나타낸다.
+		th.style.display = "none";
+		let check = true;
+		
+		const imga = document.querySelectorAll('img');
+		
+		for(i = 0; i < imga.length; i++){
+			if(imga[i].style.display != "none"){
+				check = false;
+			}
+		}
+		
+		if(check){
+			setTimeout(()=>{
+				for(i = 0; i < imga.length; i++){
+					imga[i].style.display = "inline";
+				}
+			}, 500)
+		}
+		
+	}
+</script>
+<style>
+	img{
+		width : 100px;
+		height : 100px;
+	}
+</style>
+</head>
+<body>
+
+	<div class="box">
+		<h2></h2>
+		<input type="radio" name="color" onclick="change('blue')">파랑색
+		<input type="radio" name="color" onclick="change('pink')">핑크 
+		<input type="radio" name="color" onclick="change('orange')">오렌지
+	</div>
+
+	<div class="box">
+		<h2></h2>
+		<input type="button" id="btn1" value="클릭하세요" onclick="clickProc()">
+		<input type="button" id="btn2" value="누르고있으세요" onmousedown="downProc()"> 
+		<input type="button" id="btn3" value="눌렀다가 놓으세요" onmouseup="upProc()">
+		<input type="text" id="text" value="안녕하세요" ondblclick="dblProc()">
+		<input type="text" id="txt2" value="안녕하세요" onmouseover="overProc()" onmouseout="outProc()">
+
+
+	</div>
+	
+	<div class="box">
+		<h2></h2>
+		<img src = "../images/Penguins.jpg" alt="" ondblclick="imgdbl(this)">
+		<img src = "../images/Koala.jpg" alt="" ondblclick="imgdbl(this)">
+		<img src = "../images/coffee1.jpg" alt="" ondblclick="imgdbl(this)">
+		<img src = "../images/Tulips.jpg" alt="" ondblclick="imgdbl(this)">
+		<img src = "../images/대나무숲.jpg" alt="" ondblclick="imgdbl(this)">
+
+	</div>
+
+</body>
+</html>

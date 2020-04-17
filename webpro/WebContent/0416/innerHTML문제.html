@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function proc1(){
+		res = "";
+		num = document.getElementById('dan');
+		a = num.options[num.selectedIndex].value;
+		for(i = 1; i<10; i++){
+			res += a + " * " + i + " = " + (parseInt(a)*i) + "<br>"; 
+		}
+		
+		document.getElementById('result1').innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+	<select id = "dan">
+		<option value ="0">단수 선택</option>
+		<option value ="1">1단</option>
+		<option value ="2">2단</option>
+		<option value ="3">3단</option>
+		<option value ="4">4단</option>
+		<option value ="5">5단</option>
+		<option value ="6">6단</option>
+		<option value ="7">7단</option>
+		<option value ="8">8단</option>
+		<option value ="9">9단</option>
+	</select>
+	<button type = "button" onclick = "proc1()">출력</button>
+	<br>
+	<h2>결과 출력</h2>
+	<div id = "result1"></div>
+	</div>
+</body>
+</html>

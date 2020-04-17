@@ -6,9 +6,10 @@
 <link href="../css/mystyle.css" rel="stylesheet" type="text/css">
 
 <script>
-	window.onload = function(){
-	   db = document.board;
-	   num = 0;
+	window.onload = function() {
+		db = document.board;
+		num = 0;
+		document.getElementById('modi').style.display = "none";
 	}
 	function proc1() {
 		num++;
@@ -26,10 +27,10 @@
 
 		// 출력 - 번호, 제목, 작성자, 내용(contentv), 원래내용(cvalue) 날짜
 
-		// 새로운 tr생성
+		// 새로운 tr생성 <tr onclick="">
 		newtr = document.createElement("tr");
-		newtr.setAttribute('onclick', view(this));//this : 클릭한 tr객체
-		
+		newtr.setAttribute('onclick', 'view(this)'); //this : 클릭한 tr객체
+
 		newtd1 = document.createElement("td");
 		newtxt1 = document.createTextNode(num);
 		newtd1.appendChild(newtxt1);
@@ -50,7 +51,6 @@
 		newtxt5 = document.createTextNode(nowdate);
 		newtd5.appendChild(newtxt5);
 
-		//<td class = 'cont'></td>
 		newtd6 = document.createElement("td");
 		newtd6.setAttribute('class', 'cont');
 		newtxt6 = document.createTextNode(cvalue);
@@ -63,25 +63,66 @@
 		newtr.appendChild(newtd5);
 		newtr.appendChild(newtd6);
 
-		ttbody = document.querySelector("#tbodytr");
+		ttbody = document.querySelector("#bodytr");
 		ttbody.appendChild(newtr);
-		
+
 		db.writer.value = "";
 		db.title.value = "";
 		db.content.value = "";
 		db.writer.focus();
 	}
-	function view(ctr){
+
+	function view(ctr) {
 		//ctr : 클릭한 tr
-		
+		document.getElementById('wr').style.display = "none";
+		document.getElementById('modi').style.display = "inline";
+		document.getElementById('modi').style.background = "yellow";
+
 		//클릭한 tr에서 각 td를 검색한다.
 		tdlist = ctr.getElementsByTagName('td');
-	
-		//각 td의 내용을 가져와서 form의 영역에 출력한다.
+
+		//각 td의 내용을 가져와서 form의 영역에 
 		db.num.value = tdlist[0].textContent;
 		db.writer.value = tdlist[1].textContent;
 		db.title.value = tdlist[2].textContent;
 		db.content.value = tdlist[5].textContent;
+	}
+
+	function modiProc() {
+		//수정버튼 클릭했을때
+
+		//수정한 내용을 가져온다 -번호, 이름, 제목, 내용
+		nvalue = db.num.value;
+		wvalue = db.writer.value;
+		tvalue = db.title.value;
+		cvalue = db.content.value;
+
+		//cvalue가 10글자 이상이면 10글자만 선택해서 저장한다.
+		cont10 = cvalue;
+		if (cvalue.length > 10) {
+			cont10 = cvalue.substr(0, 10) + ".....";
+		}
+
+		//날짜
+		today = new Date();
+		dvalue = today.toLocaleDateString();
+
+		//수정한 내용을 오른쪽 테이블에 출력한다.
+		trtag = document.getElementsByTagName('tr')[nvalue];
+		trtag.getElementsByTagName('td')[1].textContent = wvalue;
+		trtag.getElementsByTagName('td')[2].textContent = tvalue;
+		trtag.getElementsByTagName('td')[3].textContent = cont10;
+		trtag.getElementsByTagName('td')[4].textContent = dvalue;
+		trtag.getElementsByTagName('td')[5].textContent = cvalue;
+
+		//수정 완료 후에 입력 내용 지우기
+		db.writer.value = "";
+		db.title.value = "";
+		db.content.value = "";
+		db.writer.focus();
+		document.getElementById('wr').style.display = "inline";
+		document.getElementById('modi').style.display = "none";
+
 	}
 </script>
 
@@ -113,9 +154,8 @@
 	
 	.listTable {
 		box-sizing: border-box;
-		width: calc(65% - 2%);
+		width: calc(63% - 2%);
 		float: right;
-		border-collapse: collapse;
 	}
 	
 	.listTable table {
@@ -126,12 +166,13 @@
 	
 	.listTable th {
 		padding: 10px;
-		border-bottom: 1px solid #dddddd;
-		border-right: none;
+		border-bottom: 1px solid #ddd;
 		border-left: none;
+		border-right: none;
 	}
-	.listTable .cont{
-		display : none;
+	
+	.listTable .cont {
+		display: none;
 	}
 </style>
 
@@ -142,7 +183,7 @@
 		<h2>새 글 작성하기</h2>
 		<form name="board">
 			<input type="hidden" name="num"><br>
-			<label>작성자</label> <input type="text" name="writer"><br>
+			<br> <label>작성자</label> <input type="text" name="writer"><br>
 			<br> <label>제목</label> <input type="text" name="title"><br>
 			<br> <label>내용</label>
 			<textarea rows=10 name="content"></textarea>
@@ -150,12 +191,15 @@
 			<br>
 
 			<div id="right">
-				<button type="button" onclick="proc1()">작성하기</button>
+				<button type="button" id="modi" onclick="modiProc()">수정하기</button>
+				<button type="button" id="wr" onclick="proc1()">작성하기</button>
 				<button type="reset">취소하기</button>
 			</div>
+		</form>
 	</div>
+
 	<div class="listTable">
-		<h2>작성글 목록</h2>
+		<h2>작성 글 목록</h2>
 		<table id="blist">
 			<thead>
 				<tr>
@@ -166,8 +210,9 @@
 					<th>날짜</th>
 				</tr>
 			</thead>
-			<tbody id="tbodytr"></tbody>
+			<tbody id="bodytr"></tbody>
 		</table>
+
 	</div>
 </body>
 </html>
