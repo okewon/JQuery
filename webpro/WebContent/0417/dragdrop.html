@@ -4,56 +4,72 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="../css/mystyle.css" rel="stylesheet" type="text/css">
-<script>
-	function proc1(){
-		//요소의 기본적으로 실행되는 이벤트를 실행되지 않도록 한다.
-		event.preventDefault();
+<style type="text/css">
+	img {
+		width: 150px;
+		height: 120px;
 	}
-	function overProc(){ //dragover()
-		event.preventDefault();
-	}
-	function startProc(){
-		//event.target; -> img
-		//alert(event.target.id); -> img의 id = img1, img2, img3, img4, img5
-		event.dataTransfer.setData("targetImg", event.target.Id);
-	}
-	function dropProc(){
-		//alert(event.target); -> div
-		if(event.target.tagName){
-			
-		}
-		imgid = event.dataTransfer.getData("targetImg");
-		event.target.appendChild(document.getElementById(imgid));
-	}
-</script>
-<style>
-	img{
-		width : 130px;
-		height : 100px;
-	}
-	#result1{
-		height : 300px;
+	
+	#result1 {
+		height: 300px;
 	}
 </style>
+<script type="text/javascript">
+	function proc1() {
+		// 요소의 기본적으로 실행되는 이벤트를 실행되지 않도록 한다.
+		event.preventDefault(); // 기본 이벤트를 실행하지 않도록 함  < a href : 이런식으로 하면 원래는 페이지가 넘어가지만 안넘어 가게 바꿈
+	}
+
+	function overProc() { // 드래그 할때 a 태그 동작 못하게 // 마우스가 이미지를 잡고 잇는 동안
+		event.preventDefault();
+	}
+
+	function startProc() {
+		// event.target => img
+		// alert(event.target.id); => img의 img1, img2, ...
+		event.dataTransfer.setData("targetImg", event.target.id);
+	}
+	function dropProc() {
+		alert(event.target.tagName); //result 이벤트가 동작하는 태그요소를 알려준다.
+		imgid = event.dataTransfer.getData("targetImg");
+
+		if (event.target.tagName == 'DIV') {// 이미지를 div 에 드롭 할때
+			// imgid = event.dataTransfer.getData("targetImg");
+			event.target.appendChild(document.getElementById(imgid));
+		} else {
+			// 이미지위에 다른 이미지를 drop 할때
+			// event.target.tagName == img 이면?
+			// img 의 부모가 필요하다.
+			event.target.parentNode.appendChild(document.getElementById(imgid));
+
+		}
+	}
+</script>
 </head>
 <body>
-	<div class = "box">
-		<h2>Drag/Drop</h2>
-		Drag의 대상은 img이다<br>
-		Drag대상인 img에다가 draggable을 true로 설정<br>
-		dragStart : dataTransfer 객체에 setData()설정<br>
-		drop : dataTransfer객체에서 getData()메서드<br>
-		result1으로 드래그한다<br>
-		<a onclick = "proc1()" href="http://www.naver.com">네이버</a>
-		<br>
-		<br>
-		<div id = "result1" ondrop="dropProc()" ondragover="overProc()"></div>
-		<br>
-		<img id = "img1" draggable="true" ondragstart="startProc()" src = "../images/Koala.jpg" alt = "">
-		<img id = "img2" draggable="true" ondragstart="startProc()" src = "../images/식품2.jpg" alt = "">
-		<img id = "img3" draggable="true" ondragstart="startProc()" src = "../images/가구2.jpg" alt = "">
-		<img id = "img4" draggable="true" ondragstart="startProc()" src = "../images/뱅쇼.jpg" alt = "">
-		<img id = "img5" draggable="true" ondragstart="startProc()" src = "../images/쇼핑백3.jpg" alt = "">
+
+	<div class="box">
+		<h2>Drag & Drop</h2>
+		drag 의 대상은 img이다<br> result1 으로 드래그 한다. result 에서 드롭<br>
+		drage 대상인 img 에다가 draggable 을 true로 설정한다.<br> dragStart :
+		dataTransfer 객체에 setData()으로 설정 drop : dataReansfer 객체에서 getData() 메서드
+		result1 으로 드래그 한다. <a onclick="proc1()" href="http://www.naver.com">
+			네이버 </a> <br> <br>
+
+		<div id="result1" ondrop="dropProc()" ondragover="overProc()"></div>
+		<br> <img id="img1" src="../images/ccc.jpg" alt=""
+			draggable="true" ondragstart="startProc()"> <img id="img2"
+			src="../images/pattern.jpg" alt="" ondragstart="startProc()"> <img
+			id="img3" src="../images/shopping.jpg" alt=""
+			ondragstart="startProc()"> <img id="img4"
+			src="../images/spongebob.png" alt="" ondragstart="startProc()">
+		<img id="img5" src="../images/Tulips.jpg" alt=""
+			ondragstart="startProc()">
+
+
+
+
+
 	</div>
 </body>
 </html>

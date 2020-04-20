@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+
+<script>
+   function proc1(){
+      idvalue = document.ff.id.value;
+      
+      idlen = idvalue.trim().length;
+      
+      if (idlen < 1){
+         alert("아이디를 입력하세요");
+         return false;
+      }
+      
+      // 길이 8~15
+      if (idlen< 8 || idlen > 15){
+         alert("id는 8~15 사이입니다");
+         return false; // 안하면 밑에꺼 실행하게된당
+      }
+      
+      namevalue = document.ff.name.value;
+      namelen = namevalue.trim().length;
+      
+      if (namevalue.trim().length < 1){
+         alert("이름을 입력하세요");
+         return false;
+      }
+      // 길이 2~10
+      if (namelen < 2 || namelen > 10){
+         alert("이름은 2~10 사이입니다");
+         return false;
+      }
+      
+      res = "당신의 아이디는 : " + idvalue + "<br>";
+      res += "이름은 : " + namevalue + "입니다";
+      
+      document.getElementById('result1').innerHTML = res;
+   }
+</script>
+
+</head>
+<body>
+
+   <div class="box">
+      <h2>공백체크 / 길이체크</h2>
+      - 값얻기 : value <br>
+      - trim() : 앞뒤의 공백을 제거 <br>
+      - length <br>
+      
+      <form name="ff">
+         <input type="text" name="id"><br>
+         <input type="text" name="name"><br>
+         <button type="button" onclick="proc1()">실행</button>
+         <div id="result1"></div>
+      </form>
+   </div>
+</body>
+</html>
