@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery-3.5.0.min.js"></script>
+</head>
+<script>
+	$(document).ready(function() {
+		//h2list = document.getElementsByTagName("h2");
+		//h2list.style.color = 'blue'; //배열이름으로 style을 지정할 수 없다. 
+		
+		/* h2List = document.getElementsByTagName("h2");
+		for (i = 0; i < h2List.lenght; i++) {
+			h2List[i].style.color = "blue";
+		}	//h2list[i] : dom객체
+
+		h2List[4].style.color = "red"; */
+		
+		h2list = $('h2');
+		h2list.css('color', 'green');
+		/* for(i = 0; i < h2list.length; i++){
+			h2list[i].style.color = 'green';
+		} */
+		$.each(h2list, function(i){
+			h2list.eq(i).css('color', 'blue');
+		});
+		
+		$('h2').on('click', function(){
+			cr = parseInt(Math.random() * 256);
+			cg = parseInt(Math.random() * 256);
+			cb = parseInt(Math.random() * 256);
+			cr = cr.toString(16);
+			cg = cg.toString(16);
+			cb = cb.toString(16);
+			
+			$(this).css('color', '#' + cr + cg + cb);
+		});
+	})
+</script>
+<body>
+
+	<div class="box">
+		$.each(h2list, function(i){<br>
+			h2list.eq(i).css('color', 'blue');<br>
+		})<br>
+		<h2>Hello 녕은</h2>	
+		<h2>Hello 다슬</h2>
+		<h2>Hello 윤성</h2>
+		<h2>Hello 동미</h2>
+		<h2>Hello 영현</h2>
+		<h2>Hello 재호</h2>
+		<h2>Hello 윤희</h2>
+		$('h2').on('click', function(){<br>
+			cr = parseInt(Math.random() * 256);<br>
+			cg = parseInt(Math.random() * 256);<br>
+			cb = parseInt(Math.random() * 256);<br>
+			cr = cr.toString(16);<br>
+			cg = cg.toString(16);<br>
+			cb = cb.toString(16);<br>
+			<br>
+			$(this).css('color', '#' + cr + cg + cb);<br>
+		})
+	</div>
+</body>
+</html>
