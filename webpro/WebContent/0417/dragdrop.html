@@ -30,7 +30,7 @@
 		event.dataTransfer.setData("targetImg", event.target.id);
 	}
 	function dropProc() {
-		alert(event.target.tagName); //result 이벤트가 동작하는 태그요소를 알려준다.
+		//alert(event.target.tagName); //result 이벤트가 동작하는 태그요소를 알려준다.
 		imgid = event.dataTransfer.getData("targetImg");
 
 		if (event.target.tagName == 'DIV') {// 이미지를 div 에 드롭 할때
@@ -48,23 +48,23 @@
 </head>
 <body>
 
-	<div class="box">
+	<div class="box" ondrop = "dropProc()" ondragover = "overProc()">
 		<h2>Drag & Drop</h2>
-		drag 의 대상은 img이다<br> result1 으로 드래그 한다. result 에서 드롭<br>
-		drage 대상인 img 에다가 draggable 을 true로 설정한다.<br> dragStart :
-		dataTransfer 객체에 setData()으로 설정 drop : dataReansfer 객체에서 getData() 메서드
-		result1 으로 드래그 한다. <a onclick="proc1()" href="http://www.naver.com">
-			네이버 </a> <br> <br>
+		drag 의 대상은 img이다<br> 
+		result1 으로 드래그 한다. result 에서 드롭<br>
+		drage 대상인 img 에다가 draggable 을 true로 설정한다.<br> 
+		dragStart : dataTransfer 객체에 setData()으로 설정 <br>
+		drop : dataReansfer 객체에서 getData() 메서드 result1 으로 드래그 한다. 
+		<a onclick="proc1()" href="http://www.naver.com">네이버 </a> 
+		<br> 
+		<br>
 
-		<div id="result1" ondrop="dropProc()" ondragover="overProc()"></div>
-		<br> <img id="img1" src="../images/ccc.jpg" alt=""
-			draggable="true" ondragstart="startProc()"> <img id="img2"
-			src="../images/pattern.jpg" alt="" ondragstart="startProc()"> <img
-			id="img3" src="../images/shopping.jpg" alt=""
-			ondragstart="startProc()"> <img id="img4"
-			src="../images/spongebob.png" alt="" ondragstart="startProc()">
-		<img id="img5" src="../images/Tulips.jpg" alt=""
-			ondragstart="startProc()">
+		<div id="result1" ondrop="dropProc()" ondragover="overProc()"></div><br> 
+		<img id="img1" src="../images/ccc.jpg" alt="" draggable="true" ondragstart="startProc()"> 
+		<img id="img2" src="../images/pattern.jpg" alt="" ondragstart="startProc()"> 
+		<img id="img3" src="../images/shopping.jpg" alt="" ondragstart="startProc()"> 
+		<img id="img4" src="../images/spongebob.png" alt="" ondragstart="startProc()">
+		<img id="img5" src="../images/Tulips.jpg" alt="" ondragstart="startProc()">
 
 
 
