@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" type ="text/css" rel = "stylesheet">
+<script src="../js/jquery-3.5.0.min.js"></script>
+<style>
+	p{
+		border : 1px solid blue;
+	}
+
+</style>
+<script>
+	$(function(){
+		$('#btn1').on('click',function(){
+			//전체 p를 선택
+			$('p').css('color', 'red');
+		})
+		$('#btn2').on('click',function(){
+			//인덱스 1인 두번째 form에 p를 선택
+			$('p',document.forms[1]).css('color','blue');
+		})
+		$('#d1').on('click',function(){
+			$('p',this).css('background','gray');
+		})
+	})
+</script>
+</head>
+<body>
+
+	<div class = "box">
+	<h2>컨텍스트</h2>
+	- $('선택자',컨텍스트) : 지정된 컨텍스트 범위 안에서 선택을 한다.<br>
+	- $('선택자',this) : 컨텍스트가 this인 경우 this는 현재 무언가를 실행하고 있는 객체 변수<br>
+	
+	<form>
+		<p>화이팅~~~</p>
+	</form>
+	
+	<form>
+		<p>화이팅~~~</p>
+	</form>
+	
+	<div id = "d1">
+		<p> 화이팅!!!</p>
+	</div>
+	
+	실행버튼을 클릭하면 전체범위내에서 p를 선택할 것이고, 실행form2버튼을 클릭하면 2(인덱스1)번째 폼에서 p를선택<br>
+	<button id ="btn1" type = "button">실행</button>
+	<button id ="btn2" type = "button">실행form2</button>
+	<div id = "result1"></div>
+	</div>
+</body>
+</html>

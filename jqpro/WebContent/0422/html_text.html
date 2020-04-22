@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function() {
+		$('#btn1').on('click', function() {
+			/*    pp = $('p').html();//1<a>홍길동</a>
+			   
+			    // $('#result1').text(pp);//1<a>홍길동</a>
+			   $('#result1').html(pp);//1홍길동 */
+			/////////////////////////////////////////////////
+			//code = "";
+			/* $.each($('p'), function() {
+				//   $('p').html();
+				code += $(this).html();
+				+"<br>";
+			}) */
+			code = `<ul>`;
+			$.each($('p'), function(i, v){ //v : p[0], p[1], p[2]
+				//code += `<li> ${$(v).html()} </li>`;				
+				code += `<li> ${ v.innerHTML } </li>`;				
+			})
+			code += `</ul>`;
+			$('#result1').html(code);
+		})
+
+		$('#btn2').on('click', function() {
+			pp = $('p').text();
+			$('#result1').text(pp);
+		})
+		$('#btn3').on('click', function() {
+			a = "happy";
+			b = "홍길동";
+
+			//res = "Hello~~" + b + " " + a;
+			res = ` hello ${b} ${a}`;
+			$('#result2').text(res);
+		})
+	})
+</script>
+</head>
+<body>
+
+	<div class="box">
+		<h2>템플릿 리터럴</h2>
+		문자열과 변수를 한번에 사용 grave accent, backquote, backtick을 이용해서 문자열을 표현한 것을<br>
+		템플릿 리터럴이라고 한다.<br>
+		템플릿 리터럴 안에서 변수 내용은 $(표현식) $(변수)
+		<p>1<a href="#">홍길동</a></p>
+		<p>2<a href="#">개나리</a></p>
+		<p>3<a href="#">진달래</a></p>
+		<button id="btn1" type="button">phtml실행</button>
+		<button id="btn2" type="button">ptext실행</button>
+		<div id="result1"></div>
+		<button id="btn3" type="button">템플릿실행</button>
+		<div id="result2"></div>
+	</div>
+</body>
+</html>

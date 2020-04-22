@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" type ="text/css" rel = "stylesheet">
+<script src="../js/jquery-3.5.0.min.js"></script>
+
+<script>
+	//버튼을 클릭하면 새로운 <p>hello</p>태그를 생성
+	//box에 추가한다.
+	$(function(){
+		$('#btn1').on('click',function(){
+			ptag = $('<p>hello</p>');
+			$('.box').append(ptag);
+		})
+		$('#btn2').on('click',function(){
+			ptag = $('<p></p>',{
+							'class' : 'p2',
+							'text' : 'hello',
+							'click' : function(){
+								$(this).css('font-size','+=3px');
+							}
+			})
+			ptag.appendTo('.box');
+		})
+		
+		$('#btn3').on('click',function(){
+			//imgtag = $('<img src = "../images/2002.jpg">');
+			imgtag = $('<img>',{
+							'class' : 'img',
+							'src' : '../images/2002.jpg',
+							'width' : '100px',
+							'height' : '100px',
+							'click' : function(){
+								//$(this).css({'width' : '+=3px','height' : '+=3px'});
+								$(this).css('width', '+=3px').css('height', '+=3px');
+							}
+			})	
+			$('#result1').append(imgtag);
+		})
+		
+		
+		
+	})
+</script>
+</head>
+<body>
+
+	<div class = "box">
+	<h2>새로운 html요소 만들기</h2>
+	
+	<button type = "button" id = "btn1">실행</button>
+	<button type = "button" id = "btn2">실행</button>
+	</div>
+	
+	<div class = "box">
+	<h2>새로운 이미지 만들기</h2>
+	버튼을 클릭하면 새로운 이미지 태그를 만든다 -> result1에 추가한다.<br>
+	이미지를 클릭하면 테두리를 설정한다.<br>
+	
+	<button type = "button" id = "btn3">실행</button>
+	<div id="result1"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery-3.5.0.min.js"></script>
+<script>
+   $(function() {
+      $('button').on('click', function() {
+         //jquery변수
+         vp = $('p');
+         vp.css('font-size', '4.0em');
+         
+         //dom변수, 2번째  p를 선택
+         dp = $('p')[2];
+         
+         //css메소드 사용불가
+         //dp.css('color','red');
+         
+         //dom변수를 $()감싸면 jquery변수로 변환되어 css메소드 사용가능
+         $(dp).css('color','red');
+      })
+      
+      $('p').on('click',function(){
+    	  //this.css('border','1px solid blue');
+    	  $(this).css('border','1px solid blue');
+      })
+   })
+</script>
+</head>
+
+<body>
+
+   <div class="box">
+      <h2>dom.jquery</h2>
+      $(dom변수) : dom 변수를 $()함수로 감싸 jQuery 변수로 변환한다.<br>
+      <p>무궁화 꽃이 피었습니다1</p>
+      <p>무궁화 꽃이 피었습니다2</p>
+      <p>무궁화 꽃이 피었습니다3</p>
+      <p>무궁화 꽃이 피었습니다4</p>
+      <button type="button">실행</button>
+      <div id="result1"></div>
+   </div>
+</body>
+</html>

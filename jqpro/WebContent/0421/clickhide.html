@@ -3,39 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<link href="../css/mystyle.css" type="text/css" rel="stylesheet">
 <script src="../js/jquery-3.5.0.min.js"></script>
+
 <script>
-	$(function(){
-		$('h2').on('click', function(){
+	$(function() {
+		$('h2').on('click', function() {
 			$(this).css('display', 'none');
-			
-			//다 사라졌느냐? 비교
-			if($('h2:visible').length < 1){
-				alert("다 사라졌다.");
+			//다 사라졌는지 비교
+			if ($('h2:visible').length < 1) {
+				$('button').show();
 			}
-		});
+		})
+
+		$('button').on('click', function() {
+			//$('h2').css('display','block');
+			$('h2').show();
+			$(this).hide();
+		})
 	})
 </script>
 <style>
-	button{
-		display : none;
+	button {
+		display: none;
 	}
 </style>
 </head>
 <body>
-	<div class = "box">
-		<h2>클릭하면 사라집니다1</h2>
-		<h2>클릭하면 사라집니다2</h2>
-		<h2>클릭하면 사라집니다3</h2>
-		<h2>클릭하면 사라집니다4</h2>
-		<h2>클릭하면 사라집니다5</h2>
-		<h2>클릭하면 사라집니다6</h2>
-		<h2>클릭하면 사라집니다7</h2>
-		<h2>클릭하면 사라집니다8</h2>
-		<h2>클릭하면 사라집니다9</h2>
-		<h2>클릭하면 사라집니다10</h2>
-		<button type = "button">실행</button>
+
+	<div class="box">
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<h2>클릭하면 사라집니다.</h2>
+		<button type="button">실행</button>
 	</div>
 </body>
 </html>
