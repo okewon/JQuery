@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function() {
+		//전체 중 한개만 선택
+		$('#btn1').on('click', function() {
+			$('#box1 li:first').css('backgroundColor', 'yellow');
+		})
+
+		//ol그룹마다 첫번째 요소를 하나씩 선택
+		$('#btn2').on('click', function() {
+			$('#box1 li:first-child').css('border', '3px solid red');
+		})
+
+		$('#btn3').on(
+				'click',
+				function() {
+					$('td:first-child').css('background', '#456125');
+					$('td:nth-child(2n)').css('background', '#123759');
+					$('td:last-child').css('background', '#984257');
+					$("tr:first td").css('background', '#444444').css('color', 'white');
+				})
+	})
+</script>
+<style>
+	#box2 table {
+		border: 2px solid orange;
+	}
+	
+	#box2 td {
+		width: 300px;
+		height: 40px;
+		text-align: center;
+		padding: 5px;
+	}
+</style>
+</head>
+<body>
+	<div id="box1" class="box">
+		<h2>자식필터</h2>
+		$('li:first') $('li:first-child')
+		<h2>여자에게 인기있는 남자들</h2>
+		<ol>
+			<li>능력있는 남자</li>
+			<li>돈많은 남자</li>
+			<li>잘생긴 남자</li>
+			<li>프로그래머</li>
+		</ol>
+
+		<h2>남자에게 인기있는 여자</h2>
+		<ol>
+			<li>예쁜 여자</li>
+			<li>귀여운 여자</li>
+			<li>섹시한 여자</li>
+			<li>공부잘하는 여자</li>
+			<li>성격좋은 여자</li>
+		</ol>
+		<button id="btn1" type="button">first</button>
+		<button id="btn2" type="button">first-child</button>
+		<div id="result1"></div>
+	</div>
+
+	<div id="box2" class="box">
+		<h2></h2>
+
+		<table border="1">
+			<tr>
+				<td>이름</td>
+				<td>주소</td>
+				<td>전화번호</td>
+			</tr>
+			<tr>
+				<td>홍길동</td>
+				<td>우산국</td>
+				<td>전화번호 없음</td>
+			</tr>
+
+
+			<tr>
+				<td>이재호</td>
+				<td>인천광역시</td>
+				<td>전화번호 안알려줬음</td>
+			</tr>
+
+		</table>
+		<button id="btn3">실행</button>
+		<button id="btn4">실행</button>
+
+	</div>
+</body>
+</html>

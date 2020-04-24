@@ -15,7 +15,7 @@ pre{
 	background : #dfcfff;
 	height : auto;
 }
-.box button, .box input[type = button]{
+.box button, .box input[type = button], .box input[type=submit], box input[type=reset]{
 	background : blue;
 	color : white;
 	font-weight : bold;
