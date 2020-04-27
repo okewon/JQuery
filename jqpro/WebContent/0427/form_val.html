@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script src = "../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+		res = "";
+		$("#btnview").on('click', function(){
+			res += `이름 : ${$('#user').val()} <br>`;
+			res += `성별 : ${$('input[type=radio]:checked').val()} <br>`;
+			res += `소개 : ${$('#intro').val()} <br>`;
+			res += `직업 : ${$('option:checked').val()} <br>`;/* 다시 하기 */
+			
+			$('#result1').html(res);
+		})
+		
+		$("#btnchange").on('click', function(){
+			//이름을 입력
+			str = prompt("이름을 입력");
+			$('#user').val(str);
+		})
+	})
+</script>
+<style>
+</style>
+</head>
+<body>
+	<div class = "box">
+		<h2></h2>
+		<!-- <form action="../0424/aa.jsp" method="post> -->
+		<form action="jqpro/0424/aa.jsp" method="post>ll
+			<label for="user">이름</label>
+			<input type="text" id="user" value="korea"><br>
+			<label >성별</label> 
+			<input type="radio" id=“gend" name="gend" value="남자" checked >남자
+			<input type="radio" id=“gend" name="gend" value="여자"  >여자<br>
+			<label for="intro">소개</label> 
+			<textarea id="intro" cols="40" rows="4"></textarea> <br>
+			<label for="work">직업</label>
+			<select id="work">
+			<option value="programmer">프로그래머</option>
+			<option value="progammer">프로게이머</option>
+			<option value="whitehand">백수</option>
+			</select><br>
+			<button type = "submit"></button>
+			<input type = "submit" value = "전송">
+			<input type = "image" src = "" alt = "이미지">
+			<button>전송</button>
+			
+			<button type = "button" id="btnview">조사하기 </button>
+			<button type = "button" id="btnchange">이름변경 </button>
+		</form>
+		<div id = "result1"></div>
+	</div>
+</body>
+</html>

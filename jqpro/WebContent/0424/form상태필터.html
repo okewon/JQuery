@@ -7,8 +7,16 @@
 <script src = "../js/jquery-3.5.0.min.js"></script>
 <script>
 	$(function(){
-		$('button').on('click', function(){
+		$('#box1 button').on('click', function(){
+			res = "";
+			$.each($('#box1 :checkbox:checked'), function(){
+				res += $(this).val() + " ";
+			})
 			
+			$('#box1 #result1').html(res);	//.text(res);
+			/* $('input[type=checkbox]:checked').each(function(a, b){
+				
+			}) */
 		})
 		
 		//$(':button')
@@ -19,18 +27,22 @@
 </style>
 </head>
 <body>
-	<div class = "box">
+	<div class = "box1">
 		<h2></h2>
-		<form>
-		취 미 :
+		선택한 체크박스를 선택자로 해서 작업의 대상이 되도록 한다.<br>
+		$(':checkbox:checked')<br>
+		$('input[type=checkbox:checked'])<br>
+		$.each($(대상), function(index, value){})<br>
+		$(대상).each(function(index, value){})<br>
+		<form action = "check.jsp" method = "post">
 		<input type="checkbox" name="hobby" value="여행" checked >여행
 		<input type="checkbox" name="hobby" value="장기">장기
 		<input type="checkbox" name="hobby" value="바둑">바둑
 		<input type="checkbox" name="hobby" value="독서" >독서
 		<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
-		<input type="button" value="전송">
-		</form>
 		<button type = "button">실행</button>
+		<input type = "submit" value = "전송" button>
+		</form>
 		<div id = "result1"></div>
 	</div>
 </body>
