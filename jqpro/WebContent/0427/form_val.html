@@ -7,12 +7,13 @@
 <script src = "../js/jquery-3.5.0.min.js"></script>
 <script>
 	$(function(){
-		res = "";
 		$("#btnview").on('click', function(){
+			res = "";
 			res += `이름 : ${$('#user').val()} <br>`;
 			res += `성별 : ${$('input[type=radio]:checked').val()} <br>`;
-			res += `소개 : ${$('#intro').val()} <br>`;
-			res += `직업 : ${$('option:checked').val()} <br>`;/* 다시 하기 */
+			info = `소개 : ${$('#intro').val()} <br>`;
+			res += info.replace(/\r/g, "").replace(/\n/g, "<br>");
+			res += `직업 : ${$('#workoption:selected').val()} <br>`;/* 다시 하기 */
 			
 			$('#result1').html(res);
 		})
@@ -31,12 +32,13 @@
 	<div class = "box">
 		<h2></h2>
 		<!-- <form action="../0424/aa.jsp" method="post> -->
-		<form action="jqpro/0424/aa.jsp" method="post>ll
+		<!-- <form action="jqpro/0424/aa.jsp" method="post> -->
+		<form>
 			<label for="user">이름</label>
 			<input type="text" id="user" value="korea"><br>
 			<label >성별</label> 
-			<input type="radio" id=“gend" name="gend" value="남자" checked >남자
-			<input type="radio" id=“gend" name="gend" value="여자"  >여자<br>
+			<input type="radio" id="gend" name="gend" value="남자" checked >남자
+			<input type="radio" id="gend" name="gend" value="여자"  >여자<br>
 			<label for="intro">소개</label> 
 			<textarea id="intro" cols="40" rows="4"></textarea> <br>
 			<label for="work">직업</label>

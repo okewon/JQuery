@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script src = "../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+		//이미지 배열 선언
+		imgarr = ["다람이1.jpg", "다람이2.png", "다람이3.jpg", "다람이4.png", "다람이5.jpg", "다람이6.png", "다람이7.jpg"];
+	
+		$("#app").on('click', function(){
+			//imgarr배열의 이미지를 선택하여 result1에 마지막으로 추가
+			rnd = parseInt(Math.random() * imgarr.length);
+			/* imgtag = $('<img>',{
+				'src': "../images/" + imgarr[rnd],
+				'width' : '100px',
+				'height' : '100px'
+			}).appendTo("#result1"); */
+			$("#result1").append(
+					$('<img>',{
+						'src': "../images/" + imgarr[rnd],
+						'width' : '100px',
+						'height' : '100px'})
+			);
+		})
+	
+		$("#pre").on('click', function(){
+			rnd = parseInt(Math.random() * imgarr.length);
+			/* imgtag = $('<img>',{
+				'src': "../images/" + imgarr[rnd],
+				'width' : '100px',
+				'height' : '100px'
+			}).prependTo("#result1"); */
+			
+			vimg = $('<img>',{
+				'src': "../images/" + imgarr[rnd],
+				'width' : '100px',
+				'height' : '100px'});
+			
+			$("#result2").prepend(vimg);
+		})
+		
+		$("#aft").on('click', function(){
+			rnd = parseInt(Math.random() * imgarr.length);
+			
+			vimg = $('<img>',{
+				'src': "../images/" + imgarr[rnd],
+				'width' : '100px',
+				'height' : '100px'});
+			
+			//$("#result3").after(vimg);
+			$(vimg).insertAfter("#result3");
+		})
+		
+		$("#bef").on('click', function(){
+			rnd = parseInt(Math.random() * imgarr.length);
+
+			vimg = $('<img>',{
+				'src': "../images/" + imgarr[rnd],
+				'width' : '100px',
+				'height' : '100px'});
+			
+			//$("#result3").before(vimg);
+			$(vimg).insertBefore("#result3");
+		})
+		
+		$('#start').on('click', function(){
+			a = setInterval(function(){
+				$('#result5 img:first').appendTo("#result5");
+			}, 100);
+			//start버튼 감추기
+			$('#start').css('display', 'none');
+		})
+		
+		$('#stop').on('click', function(){
+			// stop버튼 클릭하면 - 이벤트 핸들러 정의
+		    // ->> setInterval실행을 종료
+		    // -->> start버튼 나타내기
+		    clearInterval(a);
+		    $('#start').css('display', 'inline');
+		})
+		
+		$("#box4 p").click(function() {
+			imgarr = ["Tulips.jpg", "국화.jpg", "Koala.jpg", "수국.jpg"];
+		} );
+	})
+</script>
+<style>
+	img{
+		width : 100px;
+		height : 100px;
+	}
+</style>
+</head>
+<body>
+	<div id = "box1" class = "box">
+		<h2>append/prepend</h2>
+		<button id = "app" type = "button" id = "app">append실행</button>
+		<button id = "pre" type = "button" id = "pre">prepend실행</button>
+		<div id = "result1"></div>
+		<div id = "result2"></div>
+	</div>
+	
+	<div id = "box2" class = "box">
+		<h2>append/prepend</h2>
+		<button id = "aft" type = "button" id = "app">after실행</button>
+		<button id = "bef" type = "button" id = "pre">before실행</button>
+		<div id = "result3"></div>
+		<div id = "result4"></div>
+	</div>
+
+	<div id = "box3" class = "box">
+		<h2>append/appendTo</h2>
+		<button type = "button" id = "start">실행</button>
+		<button type = "button" id = "stop">종료</button>
+		<br>
+		<br>
+		<div id = "result5">
+			<img src = "../images/다람이1.jpg">
+			<img src = "../images/다람이2.png">
+			<img src = "../images/다람이3.jpg">
+			<img src = "../images/다람이4.png">
+			<img src = "../images/다람이5.jpg">
+			<img src = "../images/다람이6.png">
+			<img src = "../images/다람이7.jpg">
+		</div>
+	</div>
+	
+	<div id = "box4" class = "box">
+		<h2>이미지 추가</h2>
+		<p title="Tulips">튜울립</p>
+		<p title="Chrysanthemum">국화</p>
+		<p title="Koala">코알라</p>
+		<p title="Hydrangeas">수국</p> 
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script src = "../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').on('click', function(){
+			$('#box1 p').wrap('<div></div>');
+		})
+		
+		$('#btn2').on('click', function(){
+			$('#box2 p').wrapAll('<div></div>');
+		})
+		
+		$('#btn3').on('click', function(){
+			$('#box1 p').unwrap();
+		})
+		
+		$('#btn4').on('click', function(){
+			$('#box2 p').unwrap();
+		})
+	})
+</script>
+<style>
+	div{
+		padding : 10px;
+		height : auto;
+		background : yellow;
+		margin : 10px; 
+	}
+</style>
+</head>
+<body>
+	<div id = "box1" class = "box">
+		<h2>div태그로 감싸기</h2>
+		<p>무궁화 꽃이 피었습니다</p>
+		<p>새로운 도전을 위하여 쉬지 말고 달리기</p>
+		<p>종치네..다음시간에</p>
+		<button type = "button" id = "btn1">wrap실행</button>
+		<button type = "button" id = "btn3">unWrap실행</button>
+	</div>
+	
+	<div id = "box2" class = "box">
+		<h2>div태그로 감싸기</h2>
+		<p>무궁화 꽃이 피었습니다</p>
+		<p>새로운 도전을 위하여 쉬지 말고 달리기</p>
+		<p>종치네..다음시간에</p>
+		<button type = "button" id = "btn2">wrapAll실행</button>
+		<button type = "button" id = "btn4">unWrap실행</button>
+	</div>
+</body>
+</html>

@@ -34,10 +34,9 @@
 							'height' : '100px',
 							'click' : function(){
 								//$(this).css({'width' : '+=3px','height' : '+=3px'});
-								$(this).css('width', '+=3px').css('height', '+=3px');
+								$(this).css('width', '+=3px').css('height', '+=3px').css("border", "3px solid blue");
 							}
-			})	
-			$('#result1').append(imgtag);
+			}).appendTo("#result1");	
 		})
 		
 		
