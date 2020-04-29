@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script src = "../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+		$('button').on('click', function(){
+			
+			$('img').attr('title', function(){
+				//src 속성 값에서 이름 부분 추출하기
+				str = $(this).attr('src');
+				start = str.lastIndexOf("/") + 1;
+				end = str.lastIndexOf(".");
+				
+				//src 속성값에서 이름 부분 추출하기
+				vtit = str.substr(start, end);
+				
+				//title설정하기 위해서 vtit값을 return한다
+				return vtit;
+				//$(this).attr('title', vtit);
+			})
+			
+			/* $.each($('img'),function(i){
+				//src 속성 값에서 이름 부분 추출하기
+				str = $(this).attr('src');
+				start = str.lastIndexOf("/")+1;
+				end = str.lastIndexOf(".");
+				
+				//src 속성값에서 이름 부분 추출하기
+				vtit = str.substr(start, end);
+				
+				//추출된 이름으로 title 속성 부여
+				$(this).attr('title', vtit);
+			}) */
+		})
+
+		$('img').on('click',function(){
+		      $(this).removeAttr('title');
+		})
+
+	})
+</script>
+<style>
+	img{
+		width : 100px;
+		height : 100px;
+		margin : 10px;
+	}
+</style>
+</head>
+<body>
+	<div class = "box">
+		<h2>attr</h2>
+		버튼 클릭시 이미지의 title 타이틀 속성을 설정<br>
+		타이틀은 이미지의 이름으로 한다.<br>
+		<img src = "../images/다람이1.jpg">
+		<img src = "../images/다람이2.png">
+		<img src = "../images/다람이3.jpg">
+		<img src = "../images/다람이4.png">
+		<img src = "../images/다람이5.jpg">
+		<img src = "../images/다람이6.png">
+		<img src = "../images/다람이7.jpg">
+		<img src = "../images/다람이8.gif">
+		<img src = "../images/다람이9.gif">
+		<img src = "../images/다람이10.gif">
+		<img src = "../images/다람이11.gif">
+		<img src = "../images/다람이13.gif">
+		<img src = "../images/다람이14.gif">
+		<img src = "../images/다람이15.gif">
+		<img src = "../images/다람이16.gif">
+		<img src = "../images/다람이17.gif">
+		<img src = "../images/다람이18.gif">
+		<br>
+		<button type = "button" id = "">실행</button>
+		<div id = "result1"></div>
+	</div>
+</body>
+</html>

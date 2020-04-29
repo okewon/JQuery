@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery-3.5.0.min.js"></script>
+	
+<script>
+   $(function() {
+	   vcss = $('#box1 li.start').next().css('border');
+	   vcolor = $('#box1 li.start').next().css('color');
+	   console.log("border = " + vcss + " color1=" + vcolor);
+
+	   
+	   $('#next').on('click', function(){
+		   $("#box1 li.start").next().css({"color": "red", "border": "2px solid red"});
+		   
+		   vcss = $('#box1 li.start').next().css('border');
+		   vcolor = $('#box1 li.start').next().css('color');
+		   console.log("border = " + vcss + " color2=" + vcolor);
+	   })
+	   
+	   $('#nextAll').on('click', function(){
+		   $("#box1 li.start").nextAll().css({"color": "green", "border": "2px solid green"});
+	   })
+	   
+	   $('#nextUntil').on('click', function(){
+		   $('#box1 li.start').nextUntil('#box1 li.end').css({"color" : "blue", "border" : "2px solid blue"});
+	   })
+	   
+	   $('#prev').on('click', function(){
+		   $("#box1 li.end").prev().css({"color": "yellow", "border": "2px solid yellow"});
+	   })
+	   
+	   $('#prevAll').on('click', function(){
+		   $("#box1 li.end").prevAll().css({"color": "orange", "border": "2px solid orange"});
+	   })
+	   
+	   $('#prevUntil').on('click', function(){
+		   $("#box1 li.end").prevUntil('#box1 li.start').css({"color": "purple", "border": "2px solid purple"});
+	   })
+	   
+	   $('#parent').on('click', function(){
+		   $("#box1 li.start").parent().css({"color": "red", "border": "2px dotted red"});
+	   })
+	   
+	   $('#parents').on('click', function(){
+		   $("#box1 li.start").parents().css({"color": "blue", "border": "2px dotted blue"});
+	   })
+	   
+	   $('#parentss').on('click', function(){
+		   $("#box1 li.start").parents('#box1').css({"color": "yellow", "border": "2px dotted yellow"});
+	   })
+	   
+	   $('#parentsUntil').on('click', function(){
+		   $("#box1 li.start").parentsUntil('#box1').css({"color": "orange", "border": "2px dotted orange"});
+	   })
+	   
+	   $('#siblings').on('click', function(){
+		   $('#box1 li.start').siblings().css({'color' : 'black', 'border' : '2px dotted black'});
+	   })
+	   
+	   $('#siblingss').on('click', function(){
+		   $('#box1 li.start').siblings('#box1 li.end').css({'color' : 'black', 'border' : '2px dotted black'});
+	   })
+   })
+</script>
+
+<style>
+	.box{
+	   background : white;
+	}
+	
+	.siblings * { 
+	  display: block;
+	  border: 2px solid lightgrey;
+	  color: lightgrey;
+	  padding: 5px;
+	  margin: 15px;
+	}
+	.siblings button{
+		display : inline;
+	}
+</style>
+
+</head>
+
+<body>
+   <div id="box1" class="box siblings">
+      <h2></h2>
+      <ul>ul (parent)  
+          <li>li (sibling)</li>
+          <li>li (sibling)</li>
+          <li class="start">li (sibling with class name "start")</li>
+          <li>li (the next sibling of li with class name "start")</li>
+          <li>li (sibling)</li>
+          <li>li (sibling)</li>
+          <li>li (sibling)</li>
+          <li class = "end">li (sibling)</li>
+        </ul>
+        <button id = "next" type="button">next실행</button>
+      	<button id = "nextAll" type="button">nextAll실행</button>
+      	<button id = "nextUntil" type="button">nextUntil실행</button>
+   		<button id = "prev" type="button">prev실행</button>
+   		<button id = "prevAll" type="button">prevAll실행</button>
+   		<button id = "prevUntil" type="button">prevUntil실행</button>
+   		<button id = "parent" type = "button">parent실행</button>
+   		<button id = "parents" type = "button">parents실행</button>
+   		<button id = "parentss" type = "button">parents(selector)실행</button>
+   		<button id = "parentsUntil" type = "button">parentsUntil실행</button>
+   		<button id = "siblings" type = "button">siblings실행</button>
+   		<button id = "siblingss" type = "button">siblings(selector)실행</button>
+   </div>
+      <hr><br>
+</body>
+</html>

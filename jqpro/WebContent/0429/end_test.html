@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script src = "../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+		$("#box1 button").on('click', function(){
+			//div의 홀수번째를 선택 0,1,2
+			//$('#box1 .dd').filter(':odd').eq(0).css('background', 'yellow').eq(1).css('background', 'green').eq(2).css('background', 'blue');
+			$('#box1 .dd').filter(':odd').eq(0).css('background', 'yellow').end().eq(1).css('background', 'green').end().eq(2).css('background', 'blue');
+		})
+	})
+</script>
+<style>
+	#box1 .dd{
+		width : 80px;
+		height : 80px;
+		border : 2px solid crimson;
+		padding : 10px;
+		margin : 10px;
+		float : left;
+	}
+	hr{
+		clear : both;
+	}
+</style>
+</head>
+<body>
+	<div id = "box1"class = "box">
+		<h2>end()</h2>
+		선택을 한 단계 앞으로 돌린다<br>
+		<div class = "dd">a</div> 
+		<div class = "dd">b</div> 
+		<div class = "dd">c</div> 
+		<div class = "dd">d</div> 
+		<div class = "dd">e</div> 
+		<div class="dd">f</div> 
+		<div class = "dd">g</div>
+		<br>
+		<hr>
+		<button type = "button">실행</button>
+	</div>
+</body>
+</html>

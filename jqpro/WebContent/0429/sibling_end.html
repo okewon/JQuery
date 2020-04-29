@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<style>
+	#box1 .dd {
+		width: 80px;
+		height: 80px;
+		border: 2px solid crimson;
+		padding: 10px;
+		margin: 10px;
+		float: left;
+	}
+	
+	hr {
+		clear: both;
+	}
+</style>
+<script src="../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').on('click', function(){
+			$('.dd').eq(1).css('border', '2px solid green');
+			$('.dd').eq(1).siblings().css('border', '2px solid blue');
+			$('.dd').eq(1).next().text('third');
+			$('.dd').eq(1).nextAll().css('background', 'yellow');
+			$('.dd').eq(1).prev().css('background', 'green');
+		})
+	})
+</script>
+</head>
+<body>
+	<div id="box1" class="box">
+		<h2></h2>
+		모든 수행은 $("div").eq(1) 를 기준으로 한다.<br> 
+		$("div").eq(1).css(녹색 테두리)<br>
+		앞뒤 형제 모두 파란색 테두리 - siblings()<br>
+		바로 다음 형제 (next() )의 text변경 — 세번째 third 뒤<br>
+		모든 형제(nextAll() )들 배경색 변경-노란색 <br>
+		앞 형제(prev() ) 배경색 변경 - 그린<br>
+		<div class="dd">a</div>
+		<div class="dd">b</div>
+		<div class="dd">c</div>
+		<div class="dd">d</div>
+		<div class="dd">e</div>
+		<div class="orange dd">f</div>
+		<div class="dd">g</div>
+		<hr>
+		<button id="btn1" type="button">실행</button>
+	</div>
+</body>
+</html>

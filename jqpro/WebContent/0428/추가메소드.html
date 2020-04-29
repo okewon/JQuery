@@ -83,7 +83,14 @@
 		})
 		
 		$("#box4 p").click(function() {
-			imgarr = ["Tulips.jpg", "국화.jpg", "Koala.jpg", "수국.jpg"];
+			vimg = $(this).attr("title");
+			
+			img = $('<img>',{
+				'src': "../images/" + vimg + ".jpg",
+				'width' : '100px',
+				'height' : '100px'});
+			
+			$(this).append(img);
 		} );
 	})
 </script>
