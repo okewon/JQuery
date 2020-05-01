@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script src = "../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+		/* $('p').mouseover(function(){
+			
+		}) */
+		/* $('p').on('mouseover', function(){
+			cr = parseInt(Math.random() * 255).toString(16);
+			cg = parseInt(Math.random() * 255).toString(16);
+			cb = parseInt(Math.random() * 255).toString(16);
+			$(this).css('font-size', '+= 2px').css('background', '#' + cr + cg + cb);
+		})
+		$('p').on('mouseout', function(){
+			cr = parseInt(Math.random() * 255).toString(16);
+			cg = parseInt(Math.random() * 255).toString(16);
+			cb = parseInt(Math.random() * 255).toString(16);
+			$(this).css('font-size', '-= 2px').css('background', '#' + cr + cg + cb);
+		}) */
+		
+		$('#box1 p').hover(function(){
+			cr = parseInt(Math.random() * 255).toString(16);
+			cg = parseInt(Math.random() * 255).toString(16);
+			cb = parseInt(Math.random() * 255).toString(16);
+			$(this).css('font-size', '100px').css('background', '#' + cr + cg + cb);
+		}, function(){
+			cr = parseInt(Math.random() * 255).toString(16);
+			cg = parseInt(Math.random() * 255).toString(16);
+			cb = parseInt(Math.random() * 255).toString(16);
+			$(this).css('font-size', '50px').css('background', '#' + cr + cg + cb);
+		})
+		
+		$('#box3 p').hover(function(){
+			$(this).addClass('phover');
+		}, function(){
+			$(this).removeClass('phover');
+		})
+		
+		$('#box4 p').click(function(){
+			$(this).toggleClass('phover');
+		})
+		
+		$('#box5 p').on('click', function(){
+			if($(this).hasClass('phover')){
+				//console.log($(this).attr('class'));
+				$(this).removeClass('phover');
+				//$(this).css('background' ,'blue');
+				$(this).addClass('abc');
+			}else{
+				$(this).addClass('phover');
+			}
+		})
+	})
+</script>
+<style>
+	#box2 p:hover{
+		font-size : 20px;
+		background : yellow;
+	}
+	
+	.phover{
+		font-size : 25px;
+		background : #525252;
+	}
+	
+	.abc{
+		color : blue;
+		background : yellow;
+	}
+</style>
+</head>
+<body>
+	<div id = "box1"  class = "box">
+		<h2>hover메소드</h2>
+		hover(function1(){}, function2(){})<br>
+		function1() : mouseover<br>
+		function2() : mouseout<br>
+		<p>제주도는 비상입니다</p>
+		<p>놀러가신 분들 재미있게 노세요</p>
+		<p>제주도의 의료진들을 생각하세요</p>
+		<p>놀러가신 분들은 아주 배려심 많고 양심이 있는 사람들이지요</p>
+	</div>
+	
+	<div id = "box2" class = "box">
+		<h2>hover스타일</h2>
+		#box2 p:hover{}<br>
+		<p>제주도는 비상입니다</p>
+		<p>놀러가신 분들 재미있게 노세요</p>
+		<p>제주도의 의료진들을 생각하세요</p>
+		<p>놀러가신 분들은 아주 배려심 많고 양심이 있는 사람들이지요</p>
+	</div>
+	
+	<div id = "box3" class = "box">
+		<h2>css클래스를 이용</h2>
+		class 파라미터를 style에 미리 만들어 놓는다<br>
+		addClass(class) : style에 정의된 css가 추가되어 실행<br>
+		removeClass(class) : style에 정의된 css를 삭제<br>
+		hasClass(class) : 리턴 결과형 true, false<br>
+		toggleClass(class) : add/remove를 번갈아가며 실행<br>
+		<p>제주도는 비상입니다</p>
+		<p>놀러가신 분들 재미있게 노세요</p>
+		<p>제주도의 의료진들을 생각하세요</p>
+		<p>놀러가신 분들은 아주 배려심 많고 양심이 있는 사람들이지요</p>
+	</div>
+	
+	<div id = "box4" class = "box">
+		<h2>css클래스를 이용</h2>
+		class 파라미터를 style에 미리 만들어 놓는다<br>
+		toggleClass(class) : add/remove를 번갈아가며 실행<br>
+		click이벤트와 같은 하나의 동작으로 수행된다<br>
+		<p>제주도는 비상입니다</p>
+		<p>놀러가신 분들 재미있게 노세요</p>
+		<p>제주도의 의료진들을 생각하세요</p>
+		<p>놀러가신 분들은 아주 배려심 많고 양심이 있는 사람들이지요</p>
+	</div>
+	
+	<div id = "box5" class = "box">
+		<h2>css클래스를 이용</h2>
+		class 파라미터를 style에 미리 만들어 놓는다<br>
+		hasClass(class) : 리턴 결과형 true, false<br>
+		click이벤트와 같은 하나의 동작으로 수행된다<br>
+		<p>제주도는 비상입니다</p>
+		<p>놀러가신 분들 재미있게 노세요</p>
+		<p>제주도의 의료진들을 생각하세요</p>
+		<p>놀러가신 분들은 아주 배려심 많고 양심이 있는 사람들이지요</p>
+	</div>
+</body>
+</html>
