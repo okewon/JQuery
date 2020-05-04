@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script src = "../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+	    $('#show').on('click',function(){
+	       $('img').show(1000, 'swing', function(){});
+	       alert("곰이다~~곰이 나타났어요~");
+	    })
+	    
+	    $('#hide').on('click',function(){
+	       $('img').hide(500);
+	    })
+	    
+	    $('#tog').on('click',function(){
+	       $('img').toggle("slow");
+	    })
+	    
+	    $('#sup').on('click', function(){
+	    	$('img').slideUp("slow");
+	    })
+	    
+	    $('#sdown').on('click', function(){
+	    	$('img').slideDown("slow");
+	    })
+	    
+	    $('#stog').on('click', function(){
+	    	$('img').slideToggle("slow");
+	    })
+	    
+	    $('#fin').on('click', function(){
+	    	$('img').fadeIn("slow");
+	    })
+	    
+	    $('#fout').on('click', function(){
+	    	$('img').fadeOut("slow");
+	    })
+	    
+	    $('#fout').on('click', function(){
+	    	$('img').fadeOut("slow");
+	    })
+	    
+	    $('#ftog').on('click', function(){
+	    	$('img').fadeToggle("slow");
+	    })
+	    
+	    $('#fto').on('click', function(){
+	    	$('img').fadeTo("slow");
+	    	alert("곰이다~~곰이 나타났어요~");
+	    })
+	})
+</script>
+<style>
+	img{
+		width : 100px;
+		height : 100px;
+	}
+</style>
+</head>
+<body>
+	<div class = "box">
+		<h2></h2>
+		<button id="show" type="button">show실행</button>
+		<button id="hide" type="button">hide실행</button>
+	   	<button id="tog" type="button">toggle실행</button>
+	   	<button id="sup" type="button">slideup실행</button>
+	   	<button id="sdown" type="button">slidedown실행</button>
+	   	<button id="stog" type="button">slidetoggle실행</button>
+	   	<button id="fin" type="button">fadein실행</button>
+	   	<button id="fout" type="button">fadeout실행</button>
+	   	<button id="ftog" type="button">fadetoggle실행</button>
+	   	<button id="fto" type="button">fadeto실행</button>
+	   	<br><br>
+	   	<img src="../images/다람이1.jpg">
+	   	<div id = "result1"></div>
+	</div>
+</body>
+</html>

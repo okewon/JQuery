@@ -55,6 +55,13 @@
 				$(this).addClass('phover');
 			}
 		})
+		
+		$('#box6 p').hover(function(){
+			$(this).addClass('abc');
+			$(this).css('font-size', '2.0em');
+		}, function(){
+			$(this).removeClass('abc');
+		})
 	})
 </script>
 <style>
@@ -128,6 +135,13 @@
 		<p>놀러가신 분들 재미있게 노세요</p>
 		<p>제주도의 의료진들을 생각하세요</p>
 		<p>놀러가신 분들은 아주 배려심 많고 양심이 있는 사람들이지요</p>
+	</div>
+	
+	<div id = "box6" class = "box">
+		<p>아메리카노</p>
+		<p>카라멜 마키아토</p>
+		<p>프리미엄 라떼</p>
+		<p>길다방 커피</p>
 	</div>
 </body>
 </html>

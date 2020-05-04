@@ -18,19 +18,31 @@
 		})
 		
 		$('#box2 button').click(function(){
-			
+			event.stopPropagation();
+			$('#box2').css('background', 'gray');
 		})
 		
 		$("#box2 span").click(function(){
-			
+			event.stopPropagation();
+			$(this).css('border', '3px solid cyan');
 		})
 		
 		$("#box2 div").click(function(){
-			
+			event.stopPropagation();
+			$(this).append("Hello~");
 		})
 	})
 </script>
 <style>
+	#box2 span{
+		display : inline-block;
+		width : 100px;
+		height : 100px;
+		background : yellow;
+	}
+	#box2 div{
+		background : pink;
+	}
 </style>
 </head>
 <body>

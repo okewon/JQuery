@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href = "../css/mystyle.css" rel = "stylesheet" type = "text/css">
+<script src = "../js/jquery-3.5.0.min.js"></script>
+<script>
+	$(function(){
+		$('#box1 button').on('click', function(){
+			//$('#box1 img').animate({left : '+=100px', width : '+=20px'}, 100);
+			
+			$('#box1 img').animate({left : '+=100px'}, 100).animate({opacity : '-=0.5'}, 100).animate({left : '-=100px'}, 100).animate({opacity : '+=0.5'}, 100);
+		})
+	})
+</script>
+<style>
+	img{
+		position : relative;
+		width : 100px;
+		height : 100px;
+	}
+</style>
+</head>
+<body>
+	<div id = "box1" class = "box">
+		<h2></h2>	
+		<img src= "../images/다람이18.gif"><br><br>
+		<button type = "button">실행</button>
+		<div id = "result1"></div>
+	</div>
+</body>
+</html>
